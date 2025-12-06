@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hardware on Keyboard Heaven</title>
-    <link>https://rpnfan.github.io/keyboard-heaven/hardware/</link>
+    <link>http://localhost:1313/keyboard-heaven/hardware/</link>
     <description>Recent content in Hardware on Keyboard Heaven</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
-    <atom:link href="https://rpnfan.github.io/keyboard-heaven/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/keyboard-heaven/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://rpnfan.github.io/keyboard-heaven/hardware/lily58/</link>
+      <link>http://localhost:1313/keyboard-heaven/hardware/lily58/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://rpnfan.github.io/keyboard-heaven/hardware/lily58/</guid>
+      <guid>http://localhost:1313/keyboard-heaven/hardware/lily58/</guid>
       <description>&lt;h1 id=&#34;lily-58&#34;&gt;Lily 58&lt;/h1&gt;
 &lt;p&gt;why I have chosen it and what is great&lt;/p&gt;
 &lt;h2 id=&#34;trackpoint&#34;&gt;trackpoint&lt;/h2&gt;

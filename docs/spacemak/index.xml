@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Spacemak on Keyboard Heaven</title>
-    <link>https://rpnfan.github.io/keyboard-heaven/spacemak/</link>
+    <link>http://localhost:1313/keyboard-heaven/spacemak/</link>
     <description>Recent content in Spacemak on Keyboard Heaven</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
-    <atom:link href="https://rpnfan.github.io/keyboard-heaven/spacemak/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/keyboard-heaven/spacemak/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://rpnfan.github.io/keyboard-heaven/spacemak/setup/</link>
+      <link>http://localhost:1313/keyboard-heaven/spacemak/setup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://rpnfan.github.io/keyboard-heaven/spacemak/setup/</guid>
+      <guid>http://localhost:1313/keyboard-heaven/spacemak/setup/</guid>
       <description>&lt;p&gt;Spacemak setup&lt;/p&gt;</description>
     </item>
   </channel>
