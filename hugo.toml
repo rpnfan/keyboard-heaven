@@ -3,3 +3,6 @@ languageCode = 'en-us'
 title = 'Keyboard Heaven'
 theme = 'PaperMod'
 publishDir = 'docs'
+
+[params]
+  customCSS = ["custom.css"]

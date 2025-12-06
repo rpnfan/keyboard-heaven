@@ -6,6 +6,3 @@
   [params.homeInfoParams]
     Title = "Your path to keyboard heaven"
     Content = "Tips, layouts and optimization techniques to make typing feel comfortable and effortless."
-
-[header]
-  sticky = true
