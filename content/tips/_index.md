@@ -1,7 +1,7 @@
 ---
 title: "General Keyboard Tips"
 description: "Fundamentals of keyboard ergonomics and best practices"
-layout: "single"
+weight: 30
 ---
 
 # General Keyboard Tips

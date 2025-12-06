@@ -1,7 +1,6 @@
 ---
 title: "Hardware"
 description: "Keyboard hardware selection and recommendations"
-layout: "single"
 ---
 
 # Hardware Guide

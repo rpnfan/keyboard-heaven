@@ -1,7 +1,6 @@
 ---
 title: "For the Nerd"
 description: "Advanced keyboard optimization, testing software, and technical analysis"
-layout: "single"
 ---
 
 # For the Nerd

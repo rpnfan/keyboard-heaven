@@ -1,8 +1,8 @@
-+++
-date = '2025-12-06T13:54:32+01:00'
-draft = false
-title = 'Spacemak'
-+++
+---
+title: "Spacemak"
+description: "Just do it"
+weight: 30
+---
 
 
 # Spacemak - Title

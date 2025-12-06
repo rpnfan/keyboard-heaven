@@ -1,7 +1,6 @@
 ---
 title: "Anymak"
 description: "A Revolutionary Typing Layout"
-layout: "single"
 ---
 
 # Anymak Keyboard Layout

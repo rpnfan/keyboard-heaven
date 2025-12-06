@@ -1,73 +1,60 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Keyboard Heaven on Blowfish</title>
+    <title>Keyboard Heaven</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content in Keyboard Heaven on Blowfish</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content on Keyboard Heaven</description>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
-    <copyright>© 2025 </copyright>
-    <lastBuildDate>Sat, 06 Dec 2025 13:54:32 +0100</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>http://localhost:1313/anymak/installation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>http://localhost:1313/anymak/installation/</guid>
-      <description></description>
-      
+      <description>&lt;h1 id=&#34;installation-of-anymak&#34;&gt;Installation of Anymak&lt;/h1&gt;
+&lt;p&gt;aeiaei&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title></title>
       <link>http://localhost:1313/hardware/lily58/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>http://localhost:1313/hardware/lily58/</guid>
-      <description></description>
-      
+      <description>&lt;h1 id=&#34;lily-58&#34;&gt;Lily 58&lt;/h1&gt;
+&lt;p&gt;why I have chosen it and what is great&lt;/p&gt;
+&lt;h2 id=&#34;trackpoint&#34;&gt;trackpoint&lt;/h2&gt;
+&lt;h2 id=&#34;scrollball&#34;&gt;scrollball&lt;/h2&gt;</description>
     </item>
-    
     <item>
       <title></title>
       <link>http://localhost:1313/nerdy/opt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>http://localhost:1313/nerdy/opt/</guid>
-      <description></description>
-      
+      <description>&lt;h1 id=&#34;opt---how-to-get-most-out-of-the-analyzer&#34;&gt;Opt - how to get most out of the analyzer&lt;/h1&gt;
+&lt;p&gt;Andreas Wettstein opt&amp;hellip;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title></title>
       <link>http://localhost:1313/spacemak/setup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>http://localhost:1313/spacemak/setup/</guid>
-      <description></description>
-      
+      <description>&lt;p&gt;Spacemak setup&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title></title>
       <link>http://localhost:1313/tips/posture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>http://localhost:1313/tips/posture/</guid>
-      <description></description>
-      
+      <description>&lt;h1 id=&#34;posture&#34;&gt;Posture&lt;/h1&gt;
+&lt;p&gt;How to sit &amp;hellip;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title></title>
       <link>http://localhost:1313/tips/switching/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>http://localhost:1313/tips/switching/</guid>
-      <description></description>
-      
+      <description>&lt;h1 id=&#34;how-to-switch-and-learn&#34;&gt;How to switch and learn&amp;hellip;&lt;/h1&gt;
+&lt;p&gt;aeinraeti&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

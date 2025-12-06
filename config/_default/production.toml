@@ -1,1 +1,3 @@
 baseURL = "https://rpnfan.github.io/keyboard-heaven/"
+theme = 'PaperMod'
+publishDir = 'docs'
