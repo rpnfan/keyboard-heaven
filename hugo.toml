@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://rpnfan.github.io/keyboard-heaven/"
 languageCode = 'en-us'
 title = 'Keyboard Heaven'
 theme = 'PaperMod'
