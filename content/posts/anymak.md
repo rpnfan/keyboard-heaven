@@ -5,7 +5,16 @@ title = 'Anymak'
 +++
 
 
-# Anymak
+# Anymak: A Revolutionary Typing Layout
+
+[View the Anymak code on GitHub →](https://github.com/yourusername/anymak)
+
+Here's how anymak improves typing ergonomics...
+
+[Installation guide →](/posts/anymak-installation.md)
+
+
+# Anymak second chapter
 ## The compatible ergonomic keyboard layer concept
 This is the explanation.
 
