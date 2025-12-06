@@ -11,14 +11,34 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-name = "Posts"
-pageRef = "posts"
-weight = 10
+name = "Home"
+pageRef = "/"
+weight = 1
 
 [[main]]
-name = "Tags"
-pageRef = "tags"
+name = "Anymak"
+pageRef = "anymak"
+weight = 30
+
+[[main]]
+name = "Spacemak"
+pageRef = "spacemak"
 weight = 20
+
+[[main]]
+name = "Keyboard hardware"
+pageRef = "hardware"
+weight = 40
+
+[[main]]
+name = "Nerdy - Stats and More"
+pageRef = "nerdy"
+weight = 50
+
+[[main]]
+name = "General Optimization Tips"
+pageRef = "general"
+weight = 10
 
 
 #[[main]]

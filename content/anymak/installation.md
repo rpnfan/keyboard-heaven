@@ -1,0 +1,2 @@
+# Installation of Anymak
+aeiaei 
