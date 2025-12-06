@@ -1,0 +1,38 @@
+
+    Directory: C:\Users\pit\OneDrive\Github\keyboard-heaven\docs
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+lar--          06.12.2025    17:41                anymak
+lar--          06.12.2025    16:44                authors
+lar--          06.12.2025    14:54                categories
+lar--          06.12.2025    16:44                css
+lar--          06.12.2025    17:41                general
+lar--          06.12.2025    17:41                hardware
+lar--          06.12.2025    15:40                images
+lar--          06.12.2025    18:26                img
+lar--          06.12.2025    18:26                js
+lar--          06.12.2025    16:44                lib
+lar--          06.12.2025    17:41                nerdy
+lar--          06.12.2025    15:40                New Folder
+lar--          06.12.2025    16:51                page
+lar--          06.12.2025    14:54                posts
+lar--          06.12.2025    16:44                series
+lar--          06.12.2025    17:41                spacemak
+lar--          06.12.2025    14:54                tags
+lar--          06.12.2025    17:47                tips
+la---          06.12.2025    18:44          21258 404.html
+la---          06.12.2025    16:41          17874 android-chrome-192x192.png
+la---          06.12.2025    16:41          37648 android-chrome-512x512.png
+la---          06.12.2025    16:41          16152 apple-touch-icon.png
+la---          06.12.2025    16:41            737 favicon-16x16.png
+la---          06.12.2025    16:41           1823 favicon-32x32.png
+la---          06.12.2025    16:41          15406 favicon.ico
+la---          06.12.2025    18:44          27041 index.html
+la---          06.12.2025    18:44           5235 index.json
+la---          06.12.2025    18:44           2196 index.xml
+la---          06.12.2025    18:44             66 robots.txt
+-a---          06.12.2025    18:59              0 schrott.txt
+la---          06.12.2025    16:41            263 site.webmanifest
+la---          06.12.2025    18:44           2331 sitemap.xml
+
