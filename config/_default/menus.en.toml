@@ -10,15 +10,16 @@
 # overridden by providing a weight value. The menu will then be
 # ordered by weight from lowest to highest.
 
+
 [[main]]
 name = "Home"
 pageRef = "/"
 weight = 1
 
 [[main]]
-name = "Anymak"
-pageRef = "anymak"
-weight = 30
+name = "Basics"
+pageRef = "basics"
+weight = 10
 
 [[main]]
 name = "Spacemak"
@@ -26,19 +27,21 @@ pageRef = "spacemak"
 weight = 20
 
 [[main]]
-name = "Keyboard hardware"
-pageRef = "hardware"
+name = "Anymak"
+pageRef = "anymak"
+weight = 30
+
+
+[[main]]
+name = "Keyboards"
+pageRef = "keyboards"
 weight = 40
 
 [[main]]
-name = "Nerdy - Stats and More"
+name = "Nerdy"
 pageRef = "nerdy"
 weight = 50
 
-[[main]]
-name = "General Optimization Tips"
-pageRef = "general"
-weight = 10
 
 
 #[[main]]
@@ -62,10 +65,10 @@ weight = 10
 #  pageRef = "posts"
 #  weight = 20
 
-#[[subnavigation]]
-#  name = "An interesting topic"
-#  pageRef = "tags/interesting-topic"
-#  weight = 10
+[[subnavigation]]
+  name = "An interesting topic"
+  pageRef = "tags/interesting-topic"
+  weight = 10
 
 #[[subnavigation]]
 #  name = "My Awesome Category"

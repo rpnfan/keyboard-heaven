@@ -1,0 +1,35 @@
+baseURL = "https://rpnfan.github.io/keyboard-heaven/"
+languageCode = "en-us"
+title = "Keyboard Heaven"
+theme = "PaperMod"
+publishDir = "docs"
+disableKinds = ["RSS"]
+enableEmojis = true
+
+
+[author]
+  name = "rpnfan"
+  homepage = "https://rpnfan.github.io/keyboard-heaven/"
+
+[params]
+  # Footer anzeigen, damit Social Icons dort sichtbar sind
+  hideFooter = false
+
+  # Social Icons (werden im Footer und im Partial genutzt)
+  socialIcons = [
+    { name = "github", url = "https://github.com/rpnfan" },
+    { name = "youtube", url = "https://www.youtube.com/@keyboards_but_no_kitchen_sink" }
+  ]
+
+  # Dark Mode Toggle
+  defaultTheme = "auto"   # Optionen: "light", "dark", "auto"
+  disableThemeToggle = false
+
+  # Extras für Posts
+  showToc = true
+  showReadingTime = true
+  showLastMod = true
+
+
+# [params.footer]
+# text = "Keyboard Heaven · Built with ❤️"

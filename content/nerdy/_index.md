@@ -1,5 +1,5 @@
 ---
-title: "For the Nerd"
+title: "Keyboard Analyzers and More"
 description: "Advanced keyboard optimization, testing software, and technical analysis"
 ---
 

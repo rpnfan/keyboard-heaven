@@ -3,7 +3,7 @@ title: "Anymak"
 description: "A Revolutionary Typing Layout"
 ---
 
-# Anymak Keyboard Layout
+## Anymak Keyboard Layout
 
 Welcome to the Anymak section. Here you'll find comprehensive guides on the Anymak layout.
 

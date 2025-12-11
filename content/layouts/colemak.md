@@ -1,0 +1,7 @@
+Colemak solves a problem which does not exist when you use a navigation/ shortcut layer (and home/bottom-row-mods): keeping xcv in the same location. So that is IMO only a theoretical plus, but not relevant any longer today with programmable keyboards and Kanata allowing way better solutions.
+The second plus is that you do not need to learn as many new keys. That means you will learn the layout a bit faster. But the difference is IMO not really relevant when you take the time and learn a new layout anyways.
+Third plus is that it is now available on the major platforms out of the box.
+Negative (see 2 above) is that because it is similar to QWERTY you can get tripped up in the learning phase easier.
+But the main reason I am not the greatest fan is that the right hand is way too busy -- to many one-handers. This something you feel, when you use the layout and get to a reasonable speed (> 50 wpm). See the graphics in the anymak:END article. It also has too many scissors and neighboring fingers, which do not feel good.
+Last minus point (for some) is that it does not work well with non-English languages. Other layouts are way more robust in their performance there.
+It is surely better than QWERTY although, if you want something "in the middle" and do not prefer Middlemak-NH.

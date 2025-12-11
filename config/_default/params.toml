@@ -1,8 +1,10 @@
 [params]
   env = "production"
   title = "Keyboard Heaven"
-  description = "Your path to keyboard heaven"
+  description = "Your path to keyboard heaven 1"
   
   [params.homeInfoParams]
-    Title = "Your path to keyboard heaven"
+    Title = "Your path to keyboard heaven 2"
     Content = "Tips, layouts and optimization techniques to make typing feel comfortable and effortless."
+
+hideFooter = "true"

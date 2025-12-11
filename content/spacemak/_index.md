@@ -1,6 +1,6 @@
 ---
 title: "Spacemak"
-description: "Just do it"
+description: "Keyboard Tricks for Everybody"
 weight: 30
 ---
 
