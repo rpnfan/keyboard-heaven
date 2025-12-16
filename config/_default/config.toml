@@ -5,6 +5,7 @@ theme = "PaperMod"
 publishDir = "docs"
 disableKinds = ["RSS"]
 enableEmojis = true
+enableGitInfo = true
 
 
 [author]
@@ -30,6 +31,8 @@ enableEmojis = true
   showReadingTime = true
   showLastMod = true
 
+
+  # customCSS = ["css/custom.css"]
 
 # [params.footer]
 # text = "Keyboard Heaven · Built with ❤️"

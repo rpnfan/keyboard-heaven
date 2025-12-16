@@ -12,40 +12,67 @@
 
 
 [[main]]
-name = "Home"
+name = "Steps"
 pageRef = "/"
 weight = 1
+
+# Subnavigation items
+[[main]]
+parent = "Steps"
+identifier = "step1"
+name = "Step 1"
+url = "/step1/"
+weight = 2
+
+[[main]]
+parent = "Steps"
+identifier = "step2"
+name = "Step 2"
+url = "/step2/"
+weight = 3
+
+[[main]]
+parent = "Steps"
+identifier = "step3"
+name = "Step 3"
+url = "/step3/"
+weight = 4
+
 
 [[main]]
 name = "Basics"
 pageRef = "basics"
 weight = 10
 
-[[main]]
-name = "Spacemak"
-pageRef = "spacemak"
-weight = 20
+#[[main]]
+#name = "Spacemak"
+#pageRef = "spacemak"
+#weight = 20
 
-[[main]]
-name = "Anymak"
-pageRef = "anymak"
-weight = 30
+#[[main]]
+#name = "Anymak"
+#pageRef = "anymak"
+#weight = 30
 
+#[[main]]
+#name = "Software"
+#pageRef = "software"
+#weight = 40
 
-[[main]]
-name = "Keyboards"
-pageRef = "keyboards"
-weight = 40
+#[[main]]
+#name = "Keyboards"
+#pageRef = "keyboards"
+#weight = 50
 
-[[main]]
-name = "Nerdy"
-pageRef = "nerdy"
-weight = 50
+#[[main]]
+#name = "Nerdy"
+#pageRef = "nerdy"
+#weight = 60
 
 [[main]]
 name = "German"
 pageRef = "german"
-weight = 50
+weight = 70
 
 
 
@@ -70,10 +97,6 @@ weight = 50
 #  pageRef = "posts"
 #  weight = 20
 
-[[subnavigation]]
-  name = "An interesting topic"
-  pageRef = "tags/interesting-topic"
-  weight = 10
 
 #[[subnavigation]]
 #  name = "My Awesome Category"

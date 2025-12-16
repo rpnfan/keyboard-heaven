@@ -1,6 +1,52 @@
+/* ===========================
+   Light theme overrides
+   =========================== */
+
+/* Force background on main containers */
+body,
+main {
+  background-color: hsl(160, 100%, 97%) !important;
+}
+
+/* Variables for light mode (PaperMod does not set data-theme="light",
+   so :root is the safe target) */
+:root {
+  --entry: #f5f5f5 !important;       /* card background */
+  --primary: #000000 !important;     /* main text */
+  --secondary: #555555 !important;   /* secondary text */
+  --tertiary: #888888 !important;    /* subtle text */
+}
+
+/* ===========================
+   Dark theme overrides
+   =========================== */
+
+/* Force background on main containers */
+[data-theme="dark"] body,
+[data-theme="dark"] main {
+  background-color: hsl(190, 100%, 10%) !important;
+}
+
+/* Variables for dark mode */
+[data-theme="dark"] {
+  --entry: #1e1e1e !important;       /* card background */
+  --primary: #e0e0e0 !important;     /* main text */
+  --secondary: #aaaaaa !important;   /* secondary text */
+  --tertiary: #777777 !important;    /* subtle text */
+}
+
+/* ===========================
+   Diagnostic helpers (optional)
+   =========================== */
+
+/* Uncomment these if you want to visually confirm which mode is active
+html:not([data-theme="dark"]) body { outline: 6px solid #00c853 !important; }  /* light */
+html[data-theme="dark"] body { outline: 6px solid #d50000 !important; }        /* dark */
+*/
+
 .description {
   font-style: italic;
-  color: #555;
+  color: var(--secondary);
   font-size: 1.2em;
   margin-top: -0.5em;
   margin-bottom: 1em;
@@ -8,11 +54,30 @@
 
 .summary {
   font-style: normal;
-  color: #222;
+  color: var(--primary);
   font-size: 1em;
   line-height: 1.4;
 }
 
 .top-link {
   display: none;
+}
+
+figure.fullwidth img {
+  width: 100%;       /* fill container */
+  height: auto;      /* keep aspect ratio */
+  display: block;
+}
+figure.fullwidth figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--secondary);
+  margin-top: 0.5rem;
+}
+
+.page-dates {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  margin: 0.5rem 0 1.5rem;
+}
 }
