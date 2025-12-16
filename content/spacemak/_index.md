@@ -2,6 +2,7 @@
 title: "Spacemak"
 description: "Keyboard Tricks for Everybody"
 weight: 30
+draft: true
 ---
 
 

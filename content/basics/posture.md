@@ -1,6 +1,7 @@
 ---
 title: "1 Posture title"
 description: "Posture desc."
+draft: true
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: "Learning a new layout"
 description: "How to switch to a new keyboard layout"
+draft: true
 ---
 
 Here is the full text of the post. Hugo will generate a summary from this content. second sentence, here is the full text of the post. Hugo will generate a summary from this content.
