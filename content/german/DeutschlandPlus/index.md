@@ -159,7 +159,7 @@ Zusätzlich erreichbar:
 
 ## Installation & Verwendung (Windows)
 
-DeutschlandPlus ist als **AutoHotkey-Skript** umgesetzt. Es gibt zwei Optionen:
+[DeutschlandPlus](https://github.com/rpnfan/DeutschlandPlus) ist als **AutoHotkey-Skript** umgesetzt. Es gibt zwei Optionen:
 
 ### Option A: Ausführbare Datei (einfach)
 1. Download der `.exe`-Datei
