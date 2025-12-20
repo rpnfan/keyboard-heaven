@@ -2,50 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/step1/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/step1/</loc>
+    <lastmod>2025-12-16T22:19:14+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/basics/</loc>
-    <lastmod>2025-12-16T16:36:44+01:00</lastmod>
+    <loc>https://rpnfan.github.io/keyboard-heaven/spacemak/</loc>
+    <lastmod>2025-12-16T22:19:14+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/spacemak/</loc>
-    <lastmod>2025-12-16T16:36:44+01:00</lastmod>
+    <loc>https://rpnfan.github.io/keyboard-heaven/german/deutschlandplus/</loc>
+    <lastmod>2022-12-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/anymak/installation/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/anymak/installation/</loc>
     <lastmod>2025-12-06T18:44:48+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/keyboards/lily58/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/keyboards/lily58/</loc>
     <lastmod>2025-12-11T21:44:31+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/layouts/colemak/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/layouts/colemak/</loc>
     <lastmod>2025-12-11T21:44:31+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/nerdy/opt/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/nerdy/opt/</loc>
     <lastmod>2025-12-06T18:44:48+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/spacemak/setup/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/scrapbook/</loc>
+  </url><url>
+    <loc>https://rpnfan.github.io/keyboard-heaven/spacemak/setup/</loc>
     <lastmod>2025-12-06T18:44:48+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/anymak/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/anymak/</loc>
     <lastmod>2025-12-11T21:44:31+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/nerdy/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/nerdy/</loc>
     <lastmod>2025-12-11T21:44:31+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/</loc>
+    <lastmod>2025-12-16T22:19:14+01:00</lastmod>
+  </url><url>
+    <loc>https://rpnfan.github.io/keyboard-heaven/keyboards/</loc>
     <lastmod>2025-12-11T21:44:31+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/keyboards/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/layouts/</loc>
     <lastmod>2025-12-11T21:44:31+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/layouts/</loc>
-    <lastmod>2025-12-11T21:44:31+01:00</lastmod>
+    <loc>https://rpnfan.github.io/keyboard-heaven/software/</loc>
+    <lastmod>2025-12-16T22:19:14+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/software/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/tags/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-  </url><url>
-    <loc>http://localhost:1313/german/</loc>
+    <loc>https://rpnfan.github.io/keyboard-heaven/german/</loc>
+    <lastmod>2025-12-16T22:19:14+01:00</lastmod>
   </url>
 </urlset>

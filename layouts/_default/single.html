@@ -15,8 +15,6 @@
       {{- end }}
     </h1>
 
-    <!-- Publish + Last modified dates -->
-    {{ partial "dates.html" . }}
 
     {{- if .Description }}
     <div class="post-description">
@@ -71,6 +69,10 @@
   {{- if (.Param "comments") }}
     {{- partial "comments.html" . }}
   {{- end }}
+
+    <!-- Publish + Last modified dates -->
+    {{ partial "dates.html" . }}
+
 </article>
 
 {{- end }}{{/* end main */}}

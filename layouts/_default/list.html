@@ -22,6 +22,9 @@
     {{- end }}
     {{- end }}
   </h1>
+
+
+
   {{- if .Description }}
   <div class="post-description">
     {{ .Description | markdownify }}
@@ -124,6 +127,8 @@
   </nav>
 </footer>
 {{- end }}
+
+{{ partial "dates.html" . }}
 
 {{- end }}{{/* end profileMode */}}
 

@@ -1,6 +1,11 @@
-<p class="page-dates">
-  Published: {{ .Date.Format "2006-01-02" }}
-  {{ if ne .Lastmod .Date }}
-    <br>Last modified: {{ .Lastmod.Format "2006-01-02" }}
+<footer class="page-dates">
+  {{ if (eq .Date.Year 1) }}
+    Published: {{ .Lastmod.Format "Jan 2, 2006" }}
+  {{ else }}
+    Published: {{ .Date.Format "Jan 2, 2006" }}
   {{ end }}
-</p>
+
+  {{ if (and (ne .Lastmod .Date) (ne .Date.Year 1)) }}
+    <br>Last modified: {{ .Lastmod.Format "Jan 2, 2006" }}
+  {{ end }}
+</footer>

@@ -39,10 +39,10 @@ url = "/step3/"
 weight = 4
 
 
-[[main]]
-name = "Basics"
-pageRef = "basics"
-weight = 10
+#[[main]]
+#name = "Basics"
+#pageRef = "basics"
+#weight = 10
 
 #[[main]]
 #name = "Spacemak"

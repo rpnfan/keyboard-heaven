@@ -2,6 +2,7 @@
 title: "General Keyboard Tips"
 description: "Fundamentals of keyboard ergonomics and best practices"
 weight: 30
+draft: true
 ---
 These pages are not published yet
 
