@@ -21,7 +21,7 @@ Ein kostenloses Add-on für die deutsche Tastaturbellegung, das schwer erreichba
 
 **Wie bekomme ich es?**
 
-Kostenloses AutoHotkey-Programm, sogar installationsfrei von USB-Stick nutzbar. Details weiter unten.
+[Kostenloses AutoHotkey-Programm](https://github.com/rpnfan/DeutschlandPlus), sogar installationsfrei von USB-Stick nutzbar. Details weiter unten.
 
 ---
 ## Das Problem: Warum AltGr nervt
@@ -141,7 +141,7 @@ Zusätzlich erreichbar:
 
 ## Erlernen & Integration: Schritt für Schritt
 
-**Erwarte nicht, dass Du alle Möglichkeiten sofort direkt "in den Fingern sitzen."** Wie jede neue Fertigkeit braucht auch dieses Layout etwas Übung. 
+**Erwarte nicht, dass alle Möglichkeiten sofort direkt "in den Fingern sitzen."** Wie jede neue Fertigkeit braucht auch dieses Layout etwas Übung. 
 
 **Zeitplan:**
 - **Die ersten Tage:** Es fühlt sich ungewohnt an, den mit dem kleinen Finger die CapsLock-Taste als Layer-Taste zu nutzen. Das ist völlig normal.
@@ -182,7 +182,7 @@ Zusätzlich erreichbar:
 ### Was du brauchst:
 - **Windows-System** mit deutscher Tastaturbelegung aktiv
 - **AutoHotkey** (nur für `.ahk`-Skript-Variante)
-- **10-Finger-Blindschreiben/ Tastschreiben** ist empfohlen.s, aber nicht Voraussetzung
+- **10-Finger-Blindschreiben/ Tastschreiben** ist empfohlen, aber nicht Voraussetzung
 
 ### Bekannte Limitationen:
 - **Loginbildschirm:** DeutschlandPlus ist dort noch nicht aktiv
