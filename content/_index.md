@@ -1,6 +1,9 @@
 ---
 title: "Keyboard Heaven title"
 description: "Your path to keyboard heaven desc."
+type: "docs"
+layout: "single"
+showToc: false
 ---
 
 {{< custom-social >}}
