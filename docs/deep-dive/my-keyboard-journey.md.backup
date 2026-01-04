@@ -1,0 +1,81 @@
+# My Keyboard Journey -- From QWERTZ to anymak:END
+
+
+## Touch-typing on a German QWERTZ keyboard is not fun
+
+I learned touch typing as a teenager and typed a lot during the following years. Just by typing a lot my speed reached about 60 to 70 wpm for real life text with a high accuracy, thus not too many errors. I began to get annoyed with the keyboard usage as soon I started using LaTeX and programming during my studies. 
+
+The symbols needed for LaTeX, programming, and HTML were trapped behind the AltGr layer—backslashes, brackets, curly braces, the @ symbol. AltGr isn't reachable from home row without uncomfortable hand contortions. And it's unreliable across different keyboards and systems. So I came up with several solutions to make these characters easy to access. To help other people finding a solution faster than myself I published an article in the computer magazine c't and created a website  called "Peter's Input Tips".
+
+Around the same time, that was in the mid 90s, I also started using Vim. That experience taught me something important: keeping your hands on the home row is powerful. Moving your hands away from the base position breaks rhythm and slows you down. When I could navigate and edit without leaving home row in Vim, everything flowed better.
+
+
+
+## 2007–2022: DeutschlandPlus
+
+Years later, when I worked in a lab using German QWERTZ, I was fine-tuning my keyboard solution again. The CapsLock key on my keyboard never got used. What if I turned it into a layer modifier? Then I could access all those symbols easily from the home row, plus bring navigation keys (arrows, Home, End, PageUp/Down) into reach, like I loved to have in Vim.
+
+I created DeutschlandPlus, an Autohotkey-script which turned my keyboard in a powerful and more comfortable input device.
+
+It was simple: hold CapsLock, and the right hand keys became symbols and navigation. HJKL became arrow keys, just like in Vim. Brackets, braces, backslashes—all accessible without moving my hands.
+
+This solution worked great. I had kept full compatibility with the standard keyboard layout, but added extra possibilities on top of that. What was even better is that the extra layer was transparent to everyone else; I could run my solution on any lab computer without anyone even noticing. Full compatibility with QWERTZ. No relearning needed. I just needed to get accquainted to the new features, which took just a few days. 
+
+Around 2010 I was looking into alternative keyboard layouts such as Neo. But in the end I decided not to ditch my long keyboard practice and just stay with QWERTZ.
+
+
+
+## 2022: Exploring Alternatives
+
+But by 2022, after 15 years using my DeutschlandPlus solution, I started wondering: *Could I do better?*
+
+The answer was yes, but it required something I had avoided before: changing the base layout itself. This time my curiousity won. I had a look at several minimal approaches, such as Minimak. But I quickly realized that the gain with swapping just a few keys will be limited seriously. Next contender was Colemak. That works reasonably well for English, but is much worse for non-English languages. 
+
+Because I type in German and Dutch besides in English I developed my own custom keyboard layout. The design used the same principles as Colemak. That is to try not to change too many keys from QWERTY and keeping XCV on the left hand for shortcuts. So my final design achieved almost the same performance for English like Colemak itself, but much better performance for German, Dutch and other languages. I praticed my new layout for about one month before making the full switch with about 40 wpm.But as I got faster over the coming weeks and came closer to 50 or 60 WPM, I realized that this Colemak-like layout feels great on the left hand, but not so much on the right hand. The difference was stark. The right hand was way too busy and many patterns involved only or mainly the right. I was dissappointed. Had I invested all the time and lerning just to feel a bit more comfortable, when I experienced already that a layout can feel nicer than my right hand experience? I decided to go the full way and look for a fully optimized layout.
+
+Around the same time, I dig deeper into Andreas Wettstein's 'opt' optimizer, which was used around 2010 to create the AdNW and KOY layouts.These layouts are based on the design principles from Dvorak and had proven over the years to be a great solution for English and German typists. 
+
+Maximilian Schillinger has published a few very helpful articles where he demonstrated how he used the opt-analzyer to develop and fine-tune his own personal best layout. I realized I could build a layout optimized specifically for English, German, and Dutch—the languages I actually typed. I spent the rest of 2022 developing a fully optimized layout. Using the 'opt' tool extensively, testing practically, tweaking manually. The result was (END stands for English, Deutsch, Nederlands and being the final destination of my keyboard journey).
+
+
+## 2023: Learning Anymak + END
+
+In 2023, I refined the END layout, again using 'opt' and more practical testing and fine-tuning. I also learned about a great layer concept. Instead of CapsLock, I switched to **SpaceFN**—using Space as a modifier, which is even easier to use and also allows to use both hands and not only the right one. I integrated navigation keys, Enter, Backspace, Alt-Tab, copy and paste key combos and more into the layer concept.
+
+A real Heureka-moment appeared when I decided to put Shift on easy to reach keys -- and not stick with the default position. Also I found that the B-key on a standard keyboard must be skipped, when you want a layout which transforms between a standard row-stagger and a split columnar staggered keyboards.
+
+I named this layer concept **Anymak**: the refined layer system (Steps 1–6) and paired it with the END alphanumeric layout (Step 7). So the full layout name is anmak:END. 
+
+Before the switch, I again practiced on keybr.com—about 20 minutes most days—until I could type around 40 WPM on the new layout. Then I switched for real.
+
+The learning was intense at first. I reached 50 to 60 WPM after about two months. But trrue fluency—where typing felt mostly as automatic and natural as QWERTZ had—took about 2 years. You have to keep in mind that I was using QWERTY for several decenia at that time already, so the switch was everything but easy. The umlauts were the last thing to feel natural, because I had moved them to a layer -- benefiting from using the matching layer switch (like for Shift where you normally use the alternate hand).
+
+After the initial keybr.com practice, I didn't practice intensively during those 2 years of actual use, which likely extended the fluency timeline. But it also showed that anymak:END works intuitively; you don't need obsessive drilling for it to become natural.
+
+
+## 2024: Finalized
+
+By 2024, I settled on the complete system with bottom-row modifiers and found hardware I feel is close to the perfect keyboard for me. That is a Franken-Lily58 with a 1.75u wide main thumb key).
+
+I'm not tweaking anymore. The system is optimized. The problem I set out to solve—symbols trapped behind AltGr, navigation unreachable from home row, and later, multi-language typing efficiency—is solved. All with being fully compatible to be used on any standard keyboard or a split keyboard with 3x6 or more keys.
+
+
+## What I Gained and Lost
+
+I gained a super comfortable typing experience. Another benefit is the learning process. I wanted to learn how I can better or faster learn. Because typing can be put into numbers quite easily (speed and accuracy) that was a great chance to find out more about different learning strategies work out in the end. To no surprise I experienced that consistent practice is key and wins over many hours put into one day. I also found that it is indeed hard to change patterns which are ingrained deeply over the years. But on the other side I also see that _it is_  possible to change -- if you are willing to put into the needed effort.
+
+What I lost: flexibility. I can't walk into an office and use a shared keyboard. Work machines just offer vanilla QWERTZ. I deliberatly did not continue to use QWERTZ, because I did not want to make the learing process harder than it needs to be. But I only use computers I can controll (my work laptop, a home desktop machine and my laptop), so the lost ability to touch type fast on QWERTY is not relevant for me.
+
+---
+
+## For Your Own Journey
+
+Not everyone needs to climb all the way to a custom layout such as anymak:END. Many people can stop at DeutschlandPlus (15-year sweet spot for good reasons) or the first two steps of Spacemak. 
+
+Your keyboard is something you touch thousands of times per day. If there's a problem worth solving, it's worth solving well.
+
+
+## What's Next?
+
+If you are haven't optimized your keyboard experience yet, you find different paths outn
+

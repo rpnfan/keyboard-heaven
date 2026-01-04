@@ -12,69 +12,47 @@
 
 
 [[main]]
+identifier = "steps"
 name = "Steps"
 pageRef = "/"
-weight = 1
+weight = 10
 
-# Subnavigation items
-[[main]]
-parent = "Steps"
-identifier = "step1"
-name = "Step 1"
-url = "/step1/"
-weight = 2
+# [[main]]
+# identifier = "how-to"
+# name = "How-To"
+# pageRef = "/how-to/"
+# weight = 20
 
-[[main]]
-parent = "Steps"
-identifier = "step2"
-name = "Step 2"
-url = "/step2/"
-weight = 3
+# [[main]]
+# identifier = "spacemak"
+# name = "Spacemak"
+# pageRef = "/spacemak/"
+# weight = 30
 
-[[main]]
-parent = "Steps"
-identifier = "step3"
-name = "Step 3"
-url = "/step3/"
-weight = 4
+# [[main]]
+# identifier = "anymak"
+# name = "Anymak"
+# pageRef = "/anymak/"
+# weight = 40
 
-
-#[[main]]
-#name = "Basics"
-#pageRef = "basics"
-#weight = 10
-
-#[[main]]
-#name = "Spacemak"
-#pageRef = "spacemak"
-#weight = 20
-
-#[[main]]
-#name = "Anymak"
-#pageRef = "anymak"
-#weight = 30
-
-#[[main]]
-#name = "Software"
-#pageRef = "software"
-#weight = 40
-
-#[[main]]
-#name = "Keyboards"
-#pageRef = "keyboards"
-#weight = 50
-
-#[[main]]
-#name = "Nerdy"
-#pageRef = "nerdy"
-#weight = 60
+# [[main]]
+# identifier = "keyboards"
+# name = "Keyboards"
+# pageRef = "/keyboards/"
+# weight = 50
 
 [[main]]
-name = "German"
-pageRef = "german"
+identifier = "deep-dive"
+name = "Deep Dive"
+pageRef = "/deep-dive/"
+weight = 60
+
+[[main]]
+identifier = "after-party"
+name = "After Party"
+pageRef = "/after-party/"
 weight = 70
-
-
+ 
 
 #[[main]]
 #  name = "Blog"
