@@ -1,16 +1,12 @@
 ---
-title: "Keyboard Heaven title"
-description: "Your path to keyboard heaven desc."
+title: "Your Path to Keyboard Heaven"
+description: "Discover tips, layouts, and optimization strategies that make typing feel natural, comfortable, and even fun."
 type: "docs"
 layout: "single"
 showToc: false
 ---
 
 {{< custom-social >}}
-
-# Your Path to Keyboard Heaven
-
-Discover tips, layouts, and optimization strategies that make typing feel natural, comfortable, and even fun.
 
 This website is dedicated to helping you find your personal best typing experience — whether you use QWERTY, a local language layout, or an alternative keyboard layout.
 
