@@ -1,6 +1,6 @@
 ---
 title: "Understanding Windows Keyboard Input: The Complete Chain"
-description: "Windows keyboard input travels through five transformation layers: HID → Scancode → Virtual Key → Layout → Character. This article explains each layer, why they exist, and why understanding them is crucial when you use or want to creat custom keyboard layouts."
+description: "Windows keyboard input travels through five transformation layers: HID → Scancode → Virtual Key → Layout → Character. This article explains each layer, why they exist, and why understanding them is crucial when you use or want to create custom keyboard layouts."
 date: 2026-01-06
 ---
 
@@ -26,7 +26,7 @@ Before diving into the chain, it's crucial to clarify three concepts that are of
 
 The physical arrangement of keys on the keyboard hardware.
 
-Examples: ANSI 104-key (standard US), ISO 105-key (European), split columnar (Kinesis Advantage), ortholinear (QMK boards)
+Examples: ANSI 104-key (standard US), ISO 105-key (European), split columnar staggered ergonomic keyboards (Kinesis Advantage, Lily58 ...)
 
 ### 2. Windows Keyboard Layout
 
@@ -36,9 +36,11 @@ Examples: US English (QWERTY), French (AZERTY), German (QWERTZ), Dvorak, Colemak
 
 ### 3. Software Remapping Layer
 
-Custom key transformations applied via software tools (Kanata, AutoHotkey) that intercept input after the Windows keyboard layout processes it. Note: QMK firmware is different — it operates at the HID level, *replacing* the standard HID input from a keyboard, not layering on top of the Windows keyboard layout.
+Custom key transformations applied via software tools (such as Kanata, AutoHotkey) that intercept input after the Windows keyboard layout processes it.
 
-Examples: Kanata profiles (anymaK, Graphite), AutoHotkey scripts, QMK keymap configurations
+Examples: Kanata profiles (e.g. for [anymak:END](https://github.com/rpnfan/Anymak), Graphite), AutoHotkey scripts
+
+ Note: QMK or ZMK firmware is different — it operates at the HID level, *replacing* the standard HID input from a keyboard, not layering on top of the Windows keyboard layout.
 
 ## The Windows Keyboard Input Chain
 
@@ -67,9 +69,9 @@ For example, on a standard ANSI keyboard:
 - HID usage `0x04` (A key) → Windows scancode `0x1E`
 - HID usage `0x05` (B key) → Windows scancode `0x30`
 
-**Critical point:** Scancode `0x1E` always refers to the same physical key position on an ANSI keyboard, the one labeled "A" in the US layout — the key in the third row from bottom, on the left side. Regardless of which Windows keyboard layout you activate, scancode `0x1E` always corresponds to that same physical location.
+**Critical point:** Scancode `0x1E` always refers to the same physical key position on an ANSI keyboard, the one labeled "A" in the US layout. Regardless of which Windows keyboard layout you activate, scancode `0x1E` always corresponds to that same physical location.
 
-**Why scancodes still exist:** Windows maintains decades of backward compatibility with PS/2 keyboard code. Scancodes provide a stable reference to physical hardware positions that doesn't change when the user switches Windows keyboard layouts.
+**Why scancodes do .sexist:** Windows maintains decades of backward compatibility with PS/2 keyboard code. Scancodes provide a stable reference to physical hardware positions that doesn't change when the user switches Windows keyboard layouts.
 
 
 
@@ -96,7 +98,7 @@ German (QWERTZ) layout active:
 
 **Second: VK-to-Character mapping (with modifiers and dead keys)**
 
-The same DLL also defines what character (or function) each VK code produces, including with modifiers (Shift, Ctrl, Alt, AltGr) and dead key combinations:
+The same DLL also defines what character (or function) each VK code produces, including potential modifiers (Shift, Ctrl, Alt, AltGr) and dead key combinations:
 
 ```
 US layout DLL:
@@ -105,9 +107,10 @@ US layout DLL:
   VK_A + Ctrl → (control code, application-dependent)
 
 French AZERTY layout DLL:
-  VK_Q + no modifiers → 'a' (Q is mapped to produce A on AZERTY)
-  VK_Q + Shift → 'A'
-  VK_A + no modifiers → 'q' (A is mapped to produce Q on AZERTY)
+Scancode 0x1E (US-ANSI A-key physical position):
+  → VK_Q
+  → VK_Q + no modifiers = 'q'
+  → VK_Q + Shift = 'Q'
 ```
 
 **Understanding the relationship:** 
