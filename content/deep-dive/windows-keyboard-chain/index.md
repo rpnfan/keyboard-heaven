@@ -98,7 +98,7 @@ German (QWERTZ) layout active:
 
 **Second: VK-to-Character mapping (with modifiers and dead keys)**
 
-The same DLL also defines what character (or function) each VK code produces, including potential modifiers (Shift, Ctrl, Alt, AltGr) and dead key combinations:
+The same DLL also defines what character (or function) each VK code produces, including potential modifiers (Shift, Ctrl, Alt, AltGr) and dead key combinations. For this example (Scancode Ox1E) we get:
 
 ```
 US layout DLL:
@@ -235,10 +235,9 @@ The three-layer abstraction (scancode → VK → character) suggests a clean sep
 - Applications assuming consistent VK codes across layouts will break
 
 **At the application level:**
-- Hotkey definition and hotkey execution often use different abstractions
-- Some apps record scancodes but check VK codes during execution
-- Software remapping layers can interfere with hotkey recording but not execution
-- This inconsistency is a major source of confusion for users
+- Hotkey definition and hotkey execution might use different abstractions
+  - Some apps record scancodes but check VK codes during execution
+  - Software remapping layers can interfere with hotkey recording but not execution. This inconsistency can be a source of confusion for users trying to remap their keyboard with tools like Kanata or Autohotkey.
 
 
 
@@ -255,10 +254,9 @@ However, the abstraction can lead to unexpected behavior or problems in practice
 
 - Applications mix abstractions (record scancodes, check VK codes)
 - Software remapping layers can interfere with some use cases but not others
-- Hotkey binding and execution use different approaches, leading to surprises
 - The VK-based system works well for text input but creates complexity for system shortcuts and keybindings
 
-The current design enables important features (runtime layout switching, game portability) but also creates the "Windows keyboard input hell" that many advanced users experience. More sophisticated features — like timed layers (hold-tap), key combinations (combos), or context-aware keybindings **are not available** within the Windows keyboard layer system. These require either custom firmware (e.g. QMK, ZMK) or software remapping layers (e.g. Kanata, AutoHotkey), which introduce their own complexities and compatibility issues.
+The current design enables important features (runtime layout switching, game portability) but also creates the "Windows keyboard input hell" that many advanced users experience. More sophisticated features — like timed input methods, such as layers via hold-tap, Autoshift, key combinations (combos), or context-aware keybindings **are not available** within the Windows keyboard layer system. These require either custom firmware (e.g. QMK, ZMK) or software remapping layers (e.g. Kanata, AutoHotkey), which introduce their own complexities and compatibility issues.
 
 Understanding which layer you're working with, and which abstraction level your application uses, is the first step toward navigating this complexity.
 
