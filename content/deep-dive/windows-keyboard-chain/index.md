@@ -104,13 +104,13 @@ The same DLL also defines what character (or function) each VK code produces, in
 US layout DLL:
   VK_A + no modifiers → 'a'
   VK_A + Shift → 'A'
-  VK_A + Ctrl → (control code, application-dependent)
+  VK_A + Ctrl → (control code, application-dependent, typically "mark all")
 
 French AZERTY layout DLL:
 Scancode 0x1E (US-ANSI A-key physical position):
-  → VK_Q
-  → VK_Q + no modifiers = 'q'
-  → VK_Q + Shift = 'Q'
+  VK_Q + no modifiers = 'q'
+  VK_Q + Shift = 'Q'
+  VK_Q + Ctrl → (control code, application-dependent, typically "close window")
 ```
 
 **Understanding the relationship:** 
