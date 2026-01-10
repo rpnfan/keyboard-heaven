@@ -7,12 +7,14 @@ cover:
   alt: "Windows Keyboard Chain - Advanced"
   caption: ""
   relative: true  # For page bundles
+
+weight: 2
 ---
 
 
 ## Introduction
 
-The [first article](/deep-dive/windows-keyboard-chain) explained how Windows transforms keyboard hardware into input through the HID → Scancode → VK → Layout chain. But that explanation left important questions: How do you actually access special characters like é, ñ, or €? Why do some keyboard remapping tools cause dead keys to stop working? How do software remapping layers interact with the Windows keyboard system?
+The explained how Windows transforms keyboard hardware into input through the HID → Scancode → VK → Layout chain. But that explanation left important questions: How do you actually access special characters like é, ñ, or €? Why do some keyboard remapping tools cause dead keys to stop working? How do software remapping layers interact with the Windows keyboard system?
 
 This article explores the practical methods for accessing special characters, the limitations and quirks of dead keys, why Input Method Editors aren't suitable for Western keyboards, and how software remapping layers intercept and transform input at different levels.
 

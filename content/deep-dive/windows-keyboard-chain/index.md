@@ -7,6 +7,8 @@ cover:
   alt: "Windows Keyboard Chain"
   caption: ""
   relative: true  # For page bundles
+
+weight: 1
 ---
 
 
