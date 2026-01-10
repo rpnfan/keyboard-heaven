@@ -2,12 +2,12 @@
 title: "[ ] { } \ @ und Navigation aus der Grundstellung: Das QWERTZ-Upgrade"
 description: "Mit DeutschlandPlus tippen Programmierer und Power-User schneller, fehlerfrei und ohne AltGr-Verrenkungen. Kostenlos und sofort nutzbar."
 date: 2022-12-21
+cover:
+  image: "DeutschlandPlus.png"  # Relative to static/ or page bundle
+  alt: "DeutschlandPlus - das QWERTZ-Upgrade"
+  caption: ""
+  relative: true  # For page bundles
 ---
-
-{{< figure src="DeutschlandPlus.png"
-           alt="DeutschlandPlus - das QWERTZ-Upgrade"
-           class="fullwidth"
-           caption="" >}}
 
 ## Quick Start
 **Was ist es?**

@@ -2,6 +2,11 @@
 title: "Understanding Windows Keyboard Input: The Complete Chain"
 description: "Windows keyboard input travels through five transformation layers: HID → Scancode → Virtual Key → Layout → Character. This article explains each layer, why they exist, and why understanding them is crucial when you use or want to create custom keyboard layouts."
 date: 2026-01-06
+cover:
+  image: "win-keyboard-chain.png"  # Relative to static/ or page bundle
+  alt: "Windows Keyboard Chain"
+  caption: ""
+  relative: true  # For page bundles
 ---
 
 
@@ -77,7 +82,7 @@ For example, on a standard ANSI keyboard:
 
 ### Step 3 & 4: Virtual Key Code and Windows Keyboard Layout DLL (Linked Concepts)
 
-The scancode is then passed to the active **Windows keyboard layout**, which is provided as a DLL file (e.g., `kbdus.dll` for US, `kbdfr.dll` for French). This DLL performs two linked transformations:
+The scancode is then passed to the active **Windows keyboard layout**, which is provided as a DLL file (e.g., `kbdus.dll` for US, `kbdfr.dll` or the updated `kbdfrna.dll` for French). This DLL performs two linked transformations:
 
 **First: Scancode-to-VK mapping**
 
@@ -256,9 +261,9 @@ However, the abstraction can lead to unexpected behavior or problems in practice
 - Software remapping layers can interfere with some use cases but not others
 - The VK-based system works well for text input but creates complexity for system shortcuts and keybindings
 
-The current design enables important features (runtime layout switching, game portability) but also creates the "Windows keyboard input hell" that many advanced users experience. More sophisticated features — like timed input methods, such as layers via hold-tap, Autoshift, key combinations (combos), or context-aware keybindings **are not available** within the Windows keyboard layer system. These require either custom firmware (e.g. QMK, ZMK) or software remapping layers (e.g. Kanata, AutoHotkey), which introduce their own complexities and compatibility issues.
+The current design enables important features (runtime layout switching, game portability) but also creates the "Windows keyboard input hell" that many advanced users experience. More sophisticated features — like timed input methods, such as layers via hold-tap, autoshift, key combinations (combos), or context-aware keybindings **are not available** within the Windows keyboard layer system. These require either custom firmware (e.g. QMK, ZMK) or software remapping layers (e.g. Kanata, AutoHotkey), which introduce their own complexities and compatibility issues.
 
-Understanding which layer you're working with, and which abstraction level your application uses, is the first step toward navigating this complexity.
+Understanding which layer you're working with, and which abstraction level your application uses, is the first step toward navigating this complexity. To dive even deeper read the [follow-up article](/deep-dive/windows-keyboard-chain-advanced) covering AltGr layers, dead keys, IME and the different options for keyboard remapping.  
 
 ---
 

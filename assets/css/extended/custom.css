@@ -83,4 +83,9 @@ figure.fullwidth figcaption {
   padding-top: 0.5rem;
   text-align: right; /* optional: align like a footer note */
 }
+
+.post-cover img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }

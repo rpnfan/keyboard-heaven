@@ -1,13 +1,15 @@
 ---
-title: "My Keyboard Journey—From QWERTZ to anymak:END"
+title: "My Keyboard Journey — From QWERTZ to anymak:END"
 description: "Why I abandoned decades of QWERTZ typing and in the end created my own keyboard layout anymak:END. A journey toward comfortable, multi-language optimized typing."
 date: 2025-12-26
+cover:
+  image: "qwertz2anymak.end.png"  # Relative to static/ or page bundle
+  alt: "My Keyboard Journey"
+  caption: ""
+  relative: true  # For page bundles
+
 ---
 
-{{< figure src="Lily58-choc-red-white.jpg"
-           alt="Lily58 Choc"
-           class="fullwidth"
-           caption="" >}}
 
 ## Touch-Typing on German QWERTZ: A Growing Frustration
 
@@ -22,11 +24,11 @@ I realized I could apply that same principle to typing besides the AltGr problem
 
 ## 2007–2022: DeutschlandPlus
 
-I noticed that the CapsLock key on my keyboard never got used. What if I turned it into a layer modifier? Then I could access all those symbols from home row, plus bring navigation keys (arrows, Home, End, PageUp/Down) into reach—just like in Vim.
+I noticed that the CapsLock key on my keyboard never got used. What if I turned it into a layer modifier? Then I could access all those symbols from home row, plus bring navigation keys (arrows, Home, End, PageUp/Down) into reach — just like in Vim.
 
-I created [**DeutschlandPlus**](/after-party/deutschlandplus/), an Autohotkey script that transformed my keyboard into a more comfortable input device. When you held CapsLock, the right-hand keys became symbols and navigation. HJKL became arrow keys, just like in Vim. Brackets, braces, backslashes—all accessible without moving my hands.
+I created [**DeutschlandPlus**](/after-party/deutschlandplus/), an Autohotkey script that transformed my keyboard into a more comfortable input device. When you held CapsLock, the right-hand keys became symbols and navigation. HJKL became arrow keys, just like in Vim. Brackets, braces, backslashes — all accessible without moving my hands.
 
-It was simple and elegant. The solution maintained full compatibility with the standard QWERTZ layout. No relearning needed—just a few days to get acquainted with the new features. As a bonus the extra layer was transparent to everyone else; I could even run it on shared computers in a lab without anyone noticing.
+It was simple and elegant. The solution maintained full compatibility with the standard QWERTZ layout. No relearning needed — just a few days to get acquainted with the new features. As a bonus the extra layer was transparent to everyone else; I could even run it on shared computers in a lab without anyone noticing.
 
 Around 2010, I looked into alternative keyboard layouts like Neo. But I decided not to abandon my years of QWERTZ practice. DeutschlandPlus felt like the right balance.
 
@@ -39,7 +41,7 @@ By 2022, after 15 years using DeutschlandPlus, I started wondering: *Could I do 
 
 The answer required something I'd avoided: changing the base layout itself.
 
-I tried Minimak—swapping just a few keys. But I quickly realized the gains would be limited. Next was Colemak. That works reasonably well for English, but it's much worse for non-English languages.
+I tried Minimak — swapping just a few keys. But I quickly realized the gains would be limited. Next was Colemak. That works reasonably well for English, but it's much worse for non-English languages.
 
 Because I type in German and Dutch besides English, I developed my own custom keyboard layout. Using Colemak's design principles (minimize changes, keep XCV on the left for shortcuts), I created a layout that achieved nearly Colemak's English performance while performing much better for German, Dutch, and other languages.
 
@@ -55,42 +57,52 @@ I decided to go the full way: create a fully optimized layout.
 
 Around the same time, I discovered Andreas Wettstein's 'opt' optimizer, which had been used to create the [AdNW](http://adnw.de/) and KOY layouts around 2010. These layouts, based on Dvorak principles, had proven to be excellent solutions for English and German typists.
 
-[Maximilian Schillinger's articles](https://www.maximilian-schillinger.de/vou-layout.html) demonstrated how to use 'opt' to develop and fine-tune personal layouts. I realized I could build a layout optimized specifically for English, German, and Dutch—the exact languages I typed.
+[Maximilian Schillinger's articles](https://www.maximilian-schillinger.de/vou-layout.html) demonstrated how to use 'opt' to develop and fine-tune personal layouts. I realized I could build a layout optimized specifically for English, German, and Dutch — the exact languages I typed.
 
-I spent the rest of 2022 developing it. Using 'opt' extensively, testing practically, tweaking manually. The result was **END** (English, Nederlands, Deutsch) — named after my goal: the final destination of my keyboard journey.
+I spent the rest of 2022 developing it. Using 'opt' extensively, testing practically, tweaking manually. The result was **END** (English, Nederlands, Deutsch)  —  named after my goal: the final destination of my keyboard journey.
 
 
 
 ## 2023: Learning Anymak + END
 
+{{< figure src="anymak-end-base.png"
+           alt="anymak:END base layer"
+           class="fullwidth"
+           caption="" >}}
+
+
 In 2023, I refined the END layout further using 'opt' and more practical testing. I also found a great idea to realize an extra layer on any keyboard: Using Space as a layer trigger, sometimes called [**SpaceFN**](https://kbd.news/The-SpaceFN-concept-2315.html), instead of using the CapsLock key was easier to use and allowed both hands to participate, not just the right one. I integrated navigation keys, Enter, Backspace, Alt+Tab, copy/paste combos, and more.
 
-Then came another eureka-moment: **shifting Shift itself.** Instead of keeping Shift in its default top-right position, I placed it on easy-to-reach keys—normally used for characters. But as one-shot modifiers (tap Shift, and the next keystroke gets capitalized), not held keys. This eliminated all finger strain from holding Shift.
+Then came another eureka-moment: **shifting Shift itself.** Instead of keeping Shift in its default top-right position, I placed it on easy-to-reach keys — normally used for characters. But as one-shot modifiers (tap Shift, and the next keystroke gets capitalized), not held keys. This eliminated all finger strain from holding Shift.
 
 The last major discovery was that the B-key position on a standard keyboard had to be skipped, when designing for both standard row-staggered and split columnar keyboards. This constraint became a key design decision.
 
-I named this complete system **Anymak**: the refined layer system paired with optimized alphanumeric layouts. The full name is **anymak:END**—Anymak layers on top of the END alphanumeric layout. Future variants would be anymak:COLEMAK, anymak:GRAPHITE, and so on.
+I named this complete system **Anymak**: the refined layer system paired with optimized alphanumeric layouts. The full name is [**anymak:END**](https://github.com/rpnfan/Anymak)  —  Anymak layers on top of the END alphanumeric layout. Future variants would be anymak:COLEMAK, anymak:GRAPHITE, and so on.
 
-Before switching, I practiced on keybr.com again—about 20 minutes most days—until I reached around 40 WPM. Then I switched for real.
+Before switching, I practiced on keybr.com again — about 20 minutes most days — until I reached around 40 WPM. Then I switched for real.
 
-The learning was intense at first. I reached 50–60 WPM after about one month. But true fluency—where typing felt as automatic and natural as QWERTZ had—took about 2 years. Remember, I'd been typing QWERTZ for decades at that point. The muscle memory was deeply ingrained. The umlauts were the last thing to feel natural, because I'd moved them to a layer—but this placement actually benefited from the symmetry of using the opposite hand for the layer-switch modifier, just like for Shift.
+The learning was intense at first. I reached 50–60 WPM after about one month. But true fluency — where typing felt as automatic and natural as QWERTZ had — took about 2 years. Remember, I'd been typing QWERTZ for decades at that point. The muscle memory was deeply ingrained. The umlauts were the last thing to feel natural, because I'd moved them to a layer — but this placement actually benefited from the symmetry of using the opposite hand for the layer-switch modifier, just like for Shift.
 
 After the initial keybr.com practice, I didn't practice intensively during those 2 years of real-world use. So I just got back to my old speed of about 60 or 70 wpm+. That seems to be normal, that after getting fluent with a new layout you will more or less reach your old speed, assuming you do not practice extra.
 
 
 ## 2024: Finalized
+{{< figure src="Lily58-choc-red-white.jpg"
+           alt="Lily58 Choc"
+           class="fullwidth"
+           caption="" >}}
 
 By 2024, I settled on the complete system with bottom-row modifiers. I'm satisfied with a customized Lily58 (a split keyboard) with a wide main thumb key for more comfortable modifier access.
 
-I'm not tweaking anymore. The system is optimized. The problem I set out to solve—symbols trapped behind AltGr, navigation unreachable from home row, and later, multi-language typing efficiency—is solved. And it works on both standard row-staggered keyboards and split ergonomic boards.
+I'm not tweaking anymore. The system is optimized. The problem I set out to solve — symbols trapped behind AltGr, navigation unreachable from home row, and later, multi-language typing efficiency — is solved. And it works on both standard row-staggered keyboards and split ergonomic boards.
 
 
 
 ## The Learning Process: An Unexpected Insight
 
-This journey taught me something beyond keyboard comfort. I wanted to understand how to learn better—to transfer that knowledge to other areas, like practicing a musical instrument.
+This journey taught me something beyond keyboard comfort. I wanted to understand how to learn better — to transfer that knowledge to other areas, like practicing a musical instrument.
 
-What I learned: **consistent daily practice beats occasional marathon sessions.** I improved more from 20 minutes daily on keybr.com than I would have from 3-hour weekend sessions. I also discovered that deeply ingrained patterns are hard to change—but it *is* possible if you're willing to invest the effort. And perhaps surprisingly, that effort doesn't have to be that intense. Steady, consistent practice works.
+What I learned: **consistent daily practice beats occasional marathon sessions.** I improved more from 20 minutes daily on keybr.com than I would have from 3-hour weekend sessions. I also discovered that deeply ingrained patterns are hard to change — but it *is* possible if you're willing to invest the effort. And perhaps surprisingly, that effort doesn't have to be that intense. Steady, consistent practice works.
 
 
 
