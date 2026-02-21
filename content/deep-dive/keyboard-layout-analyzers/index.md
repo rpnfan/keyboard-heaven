@@ -88,7 +88,27 @@ For **Hungarian**, with heavy use of diacritics and multiple layer-switch keys, 
 
 **The current gap:** Layer-key placement is huge optimization space that most analyzers completely ignore. It's not a minor issue and has a serious impact on how the layout will feel in everyday use. This is true for English users and even more so for many other languages.
 
-## Why These Limitations Exist: The Ecosystem Behind Analyzers
+**Example 3: Magic Keys and Context-Dependent Optimization**
+
+Some layouts like **Magic Sturdy** use "magic keys" — special keys that intelligently modify the output of adjacent or previously typed keys based on context. Unlike layer keys (which change which character set is available), magic keys *optimize specific keystroke sequences* by producing alternative characters based on what was typed before or the hand context.
+
+For example, a magic key might intelligently handle a common bigram that would normally be an SFB or awkward redirect, producing the right character while reducing finger strain.
+
+**What an analyzer sees (if configured):**
+
+Analyzers can be configured to account for magic keys by pre-computing their likely outputs and including those patterns in the analysis. The analyzer can then measure whether the magic key's intervention actually reduces SFBs, improves hand alternation, or eliminates awkward redirects. If properly configured, the analyzer *can* account for magic keys as a design tool.
+
+**What the analyzer still misses:**
+
+- **Cognitive load:** Magic keys trade finger ergonomics for *mental load*. Even if the keystroke sequence is physically easier, your brain must recognize and trust the context-aware behavior. Will you consciously think about whether the magic key will trigger, or will it become automatic? This varies by person and by how intuitive the magic key's logic is.
+- **Learning curve and reliability:** A layout with many magic keys requires learning when they activate and trusting that they'll do the right thing. Some typists find this second nature; others find the unpredictability frustrating or fatiguing, even if the physical metrics are better.
+- **Individual preference for predictability vs. optimization:** Some typists prefer "what you press is what you get" (traditional keys) even if it means slightly more effort; others prefer optimized-but-conditional behavior. This is a design philosophy choice, not a measurable ergonomic factor.
+
+**The practical consequence:** An analyzer can show that magic keys reduce SFBs or improve alternation *numerically*, but it can't predict whether the cognitive overhead will outweigh the physical benefits *for you*. A layout with excellent metrics but many magic keys might feel slower or more mentally taxing than a layout with slightly worse metrics but more straightforward behavior.
+
+**The lesson:** Magic keys are a powerful optimization lever, but they represent a trade-off between **physical ergonomics** (measurable) and **cognitive ergonomics** (not measurable by analyzers). You must test these layouts with real typing to know if the trade-off works for your brain. The analyzer can help validate that the magic keys are actually improving the intended metrics, but it can't evaluate whether you'll prefer that optimization style.
+
+## Why Limitations Exist: The Structure of Analyzers
 
 These described limitations do not exist in isolation. They come on top of other challenges:
 
