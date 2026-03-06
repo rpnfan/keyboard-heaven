@@ -14,7 +14,7 @@ weight: 2
 
 ## Touch-Typing on German QWERTZ: A Growing Frustration
 
-I learned touch typing as a teenager and typed extensively throughout my studies and career. I was a happy typis, reaching a speed of 60–70 WPM on real-world text with high accuracy.
+I learned touch typing as a teenager and typed extensively throughout my studies and career. I was a happy typist, reaching a speed of 60–70 WPM on real-world text with high accuracy.
 
 I began to get annoyed with the keyboard ergonomics, or better said the lack thereof, as soon as I started using LaTeX and programming during my studies. The symbols I needed constantly -- backslashes, brackets, curly braces and more were trapped behind the AltGr layer. AltGr isn't reachable from home row without uncomfortable hand contortions. And it's unreliable across different keyboards and systems.
 
@@ -72,9 +72,9 @@ I spent the rest of 2022 developing it. Using 'opt' extensively, testing practic
            caption="" >}}
 
 
-In 2023, I refined the END layout further using 'opt' and more practical testing. I also found a great idea to realize an extra layer on any keyboard: Using Space as a layer trigger, sometimes called [**SpaceFN**](https://kbd.news/The-SpaceFN-concept-2315.html), instead of using the CapsLock key was easier to use and allowed both hands to participate, not just the right one. I integrated navigation keys, Enter, Backspace, Alt+Tab, copy/paste combos, and more.
+In 2023, I refined the END layout further using 'opt' and more practical testing. I also found a great idea to realize an extra layer on any keyboard: Using Space as a layer trigger, sometimes called [**SpaceFN**](https://kbd.news/The-SpaceFN-concept-2315.html). With the SpaceFN concept the space bar is held as a layer modifier. That's more comfortable than my earlier CapsLock solution. SpaceFN also lets both hands participate, not just the right one. On my navigation layer I integrated not only navigation keys but also otherwise harder to reach keys such as Enter, Backspace and the most used key combos such as Alt+Tab, copy/paste combos, and more.
 
-Then came another eureka-moment: **shifting Shift itself.** Instead of keeping Shift in its default top-right position, I placed it on easy-to-reach keys — normally used for characters. But as one-shot modifiers (tap Shift, and the next keystroke gets capitalized), not held keys. This eliminated all finger strain from holding Shift.
+Then came another eureka-moment: **shifting Shift itself.** Instead of keeping Shift in its default top-right position, I placed it on easy-to-reach keys — normally used for characters. But as one-shot modifiers. Just tap Shift without needing to hold it down and the next keystroke gets capitalized. This eliminated all finger strain from holding Shift.
 
 The last major discovery was that the B-key position on a standard keyboard had to be skipped, when designing for both standard row-staggered and split columnar keyboards. This constraint became a key design decision.
 
@@ -93,7 +93,7 @@ After the initial keybr.com practice, I didn't practice intensively during those
            class="fullwidth"
            caption="" >}}
 
-By 2024, I settled on the complete system with bottom-row modifiers. I'm satisfied with a customized Lily58 (a split keyboard) with a wide main thumb key for more comfortable modifier access.
+By 2024, I settled on the complete system with bottom-row modifiers. Until then I was using standard row-stagger keyboards, but in a split version. I loved my UHK 60 v2. At the time I finalized my layout I switched to a columnar split keyboard. That just feels more natural and makes total sense to have the left and right hand totally symmetrical. Currently I am using a custom Lily58, which uses a wide main thumb key for more comfortable modifier access. That is different from most ergonomic split keyboards, which mostly use only 1u wide thumb keys. 
 
 I'm not tweaking anymore. The system is optimized. The problem I set out to solve — symbols trapped behind AltGr, navigation unreachable from home row, and later, multi-language typing efficiency — is solved. And it works on both standard row-staggered keyboards and split ergonomic boards.
 
@@ -109,7 +109,7 @@ What I learned: **consistent daily practice beats occasional marathon sessions.*
 
 ## The Trade-Off: Comfort vs. Flexibility
 
-I gained a genuinely comfortable typing experience. After decades of QWERTZ, my hands now do not have to jump around wild over the keys anymore. Typing flows much more natural.
+I gained a genuinely comfortable typing experience. After decades of QWERTZ, my hands now do not have to jump around wildly over the keys anymore. Typing flows much more naturally.
 
 What I lost: flexibility. I can't walk into an office and type quickly on a shared keyboard. Work machines offer vanilla QWERTZ. I deliberately chose not to maintain active QWERTZ skills, because that would have made the learning process harder. But because I only use computers I control (my work laptop, a home desktop, my personal laptop), this flexibility loss doesn't matter. The trade-off was worth it for me.
 
@@ -117,12 +117,9 @@ What I lost: flexibility. I can't walk into an office and type quickly on a shar
 
 ## For Your Own Journey
 
-This was my path. But you don't need to follow it completely. You may find your sweet spot at DeutschlandPlus a solution I used 15-year for good reason. Or you like the extra features of Spacemak or Anymak? And in the case you are even more willing than me to loose some compatability to standard keyboards you might choose a thumb-cluster keyboard.
+This was my path. But you don't need to follow it completely. You may find your sweet spot at DeutschlandPlus, a solution I used 15 years for good reason. Or maybe you will like the extra features of Spacemak or Anymak? And if you are even more willing than me to lose some compatibility to standard keyboards you might choose a thumb-cluster keyboard.
 
-Your keyboard is something you often use for hours every day. It can be worth to optimize your keyboard usage well. But "well" means different things to different people.
-
-
-## What's Next?
+Your keyboard is something you often use for hours every day. It can be worth optimizing your keyboard usage well. But "well" means different things to different people.
 
 If you're interested in exploring your own keyboard optimization, see the [steps](/) to different paths to your own "keyboard heaven."
 
