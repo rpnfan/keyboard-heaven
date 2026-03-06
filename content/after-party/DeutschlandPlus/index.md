@@ -12,7 +12,7 @@ cover:
 ## Quick Start
 **Was ist es?**
 
-Ein kostenloses Add-on für die deutsche Tastaturbellegung, das schwer erreichbare Zeichen (Klammern, @, €) und Navigation in die Grundreihe bringt – ohne die Standard-Belegung zu verändern.
+Ein kostenloses Add-on für die deutsche Tastaturbelegung, das schwer erreichbare Zeichen (Klammern, @, €) und Navigation in die Grundreihe bringt – ohne die Standard-Belegung zu verändern.
 
 **Was bringt es?** 
 - Programmier-Zeichen `[ ] { } \` und mehr ohne AltGr erreichbar
@@ -68,14 +68,14 @@ Die **CapsLock-Taste** wird zur zusätzlichen Modifier-Taste umfunktioniert. Dam
 
 **Wichtig:** Am deutschen Tastaturlayout selbst ändert sich nichts. Du nutzt weiterhin Shift wie gewohnt. CapsLock sitzt links und ist mit dem kleinen Finger leicht zu halten – die Grundstellung bleibt unangetastet.
 
-**Anpassparkeit:** Wem die vorgeschlagene Belegung der neuen Funktionen nicht gefällt, der kann diese auch leicht an eigene Wünsche und Bedürfnisse anpassen.
+**Anpassbarkeit:** Wenn die vorgeschlagene Belegung der neuen Funktionen nicht gefällt, lässt sich das leicht an eigene Wünsche und Bedürfnisse anpassen.
 
 
 ## Warum funktioniert das so gut?
 
 Beim Blindschreiben (10-Finger Tastschreiben) gilt die Regel: **Shift mit der anderen Hand als die Taste, die man drücken will.**
 
-Das gleiche Prinzip nutzt DeutschlandPlus mit CapsLock. Da CapsLock mit der linken Hand genutzt wird, kann man mit der rechten Hand bequem die meisten Sonderzeichen tippen. Die Hand bleibt in oder nah bei der Grundstellung. Für das Eurosymbol und den Klammeraffen gibt es aber auch eine Lösung. 😀
+Das gleiche Prinzip nutzt DeutschlandPlus mit CapsLock. Da CapsLock mit der linken Hand genutzt wird, kann man mit der rechten Hand bequem die meisten Sonderzeichen tippen. Die Hand bleibt in oder nah bei der Grundstellung. Für das Eurosymbol und den Klammeraffen gibt es aber auch eine Lösung.
 
 **Zusätzlicher Bonus:** Die Navigation aus der Grundstellung spart den Griff zum Navigationblock (Pfeiltasten-Cluster) – oder sogar zur Maus. Das erspart viel Zeit im Alltag.
 
@@ -96,7 +96,7 @@ Das funktioniert auch auf US-Tastaturen (ANSI, 104 Tasten), die die deutsche `<>
 
 ### Textkürzel (Hotstrings)
 
-Neben dem Trick mit der CapsLock-Taste eine zusätzliche Ebene für Zeichen und Navigation zu realisieren erlaubt die Nutzung von Textkürzeln die einfache und schnelle Eingabe weiterer Zeichen.
+Ergänzend zur CapsLock-Ebene bietet DeutschlandPlus auch Textkürzel, sogenannte Hotstrings, für weitere Sonderzeichen.
 
 Ein Beispiel:
 - Tippe `=>`  → wird automatisch zu `⇒` (Doppelpfeil)
@@ -122,7 +122,7 @@ Mit `CapsLock + rechte Shift` öffnet sich im Browser die Seite **https://www.am
 
 ## Navigation: Pfeiltasten ohne Griff zum Navigationblock
 
-Die **Pfeiltasten** liegen auf `H`, `J`, `K`, `L` – wie auch in der Linuxwelt und im Texteditor Vim üblich:
+Die **Pfeiltasten** liegen auf `H`, `J`, `K`, `L` – wie auch in der Linuxwelt und im populären Texteditor Vim üblich, was Tastaturnavigation ohne Maus ermöglicht:
 
 ```
   H (←)  J (↓)  K (↑)  L (→)
@@ -144,8 +144,8 @@ Zusätzlich erreichbar:
 **Erwarte nicht, dass alle Möglichkeiten sofort direkt "in den Fingern sitzen."** Wie jede neue Fertigkeit braucht auch dieses Layout etwas Übung. 
 
 **Zeitplan:**
-- **Die ersten Tage:** Es fühlt sich ungewohnt an, den mit dem kleinen Finger die CapsLock-Taste als Layer-Taste zu nutzen. Das ist völlig normal.
-- **Wochen 2–3:** Die neuen Funktionen werden natürlich. Du nutzt sie unbewusst.
+- **Die ersten Tage:** Es fühlt sich ungewohnt an, mit dem kleinen Finger die CapsLock-Taste als Layer-Taste zu nutzen. Das ist völlig normal.
+- **Wochen 2–3:** Wer täglich tippt, wird merken, dass die neuen Funktionen anfangen sich natürlich anzufühlen. Du nutzt sie unbewusst.
 
 **Empfohlene Lernreihenfolge:**
 1. Starte mit den häufigen Sonderzeichen: `{ } [ ] \ € @`
@@ -209,8 +209,8 @@ Für mich hat sich DeutschlandPlus **seit 2008** bewährt. Ich habe es über 15 
            class="fullwidth"
            caption="" >}}
 
-Wer bereit ist von der Standardbelegung ein wenig oder auch komplett abzuweichen findet in [Spacemak](https://github.com/rpnfan/Spacemak) und [Anymak](https://github.com/rpnfan/Anymak) den vermutlich finalen Weg in den Tastatur Himmel :-) 
+Wer noch weiter gehen will und bereit ist von der Standardbelegung ein wenig oder auch komplett abzuweichen findet in [Spacemak](https://github.com/rpnfan/Spacemak) und [Anymak](https://github.com/rpnfan/Anymak) den vermutlich finalen Weg in den Tastatur Himmel :-) 
 
-Spacemak [1] kann man quasi als Nachfolger von DeutschlandPlus betrachten, da es die Kompatibiltät mit dem Standardlayout auch so gut wie beibehält. Je nach deinen Wünschen oder Zielen ist das ggf. noch spannender als DeutschlandPlus, da es noch viel mehr Tasten für Shortcuts (copy, paste, Tab-Navigation) und noch mehr Zeichen nutzbar macht. Anymak packt dann letzlich obendrein noch eine eigene Tastaturbelegung obendrauf, so dass die Nachteile von QWERTY / QWERTZ umgangen werden.
+Spacemak [1] kann man quasi als Nachfolger von DeutschlandPlus betrachten, da es die Kompatibilität mit dem Standardlayout auch so gut wie beibehält. Je nach deinen Wünschen oder Zielen ist das ggf. noch spannender als DeutschlandPlus, da es noch viel mehr Tasten für Shortcuts (copy, paste, Tab-Navigation) und noch mehr Zeichen nutzbar macht. Anymak packt dann letztlich obendrein noch eine eigene Tastaturbelegung obendrauf, so dass die Nachteile von QWERTY / QWERTZ umgangen werden.
 
 [1]  Abgebildet ist hier die Spacemak Navigations- und Kürzel-Ebene mit einer geteilten symmetrischen Tastatur (columnar split keyboard). Das zeigt etwas übersichtlicher welcher Finger welche Taste nutzt, aber funktioniert in exakt gleicher Weise auf einer Standardtastatur.

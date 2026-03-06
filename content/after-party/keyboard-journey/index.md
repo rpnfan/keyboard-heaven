@@ -54,7 +54,7 @@ I decided to go the full way: create a fully optimized layout.
 
 
 
-## The Breakthrough: Discovering 'opt' and Multi-Language Optimization
+## Discovering 'opt' and Multi-Language Optimization
 
 Around the same time, I discovered Andreas Wettstein's 'opt' optimizer, which had been used to create the [AdNW](http://adnw.de/) and KOY layouts around 2010. These layouts, based on Dvorak principles, had proven to be excellent solutions for English and German typists.
 
