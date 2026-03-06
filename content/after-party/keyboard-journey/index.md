@@ -74,7 +74,7 @@ I spent the rest of 2022 developing it. Using 'opt' extensively, testing practic
 
 In 2023, I refined the END layout further using 'opt' and more practical testing. I also found a great idea to realize an extra layer on any keyboard: Using Space as a layer trigger, sometimes called [**SpaceFN**](https://kbd.news/The-SpaceFN-concept-2315.html). With the SpaceFN concept the space bar is held as a layer modifier. That's more comfortable than my earlier CapsLock solution. SpaceFN also lets both hands participate, not just the right one. On my navigation layer I integrated not only navigation keys but also otherwise harder to reach keys such as Enter, Backspace and the most used key combos such as Alt+Tab, copy/paste combos, and more.
 
-Then came another eureka-moment: **shifting Shift itself.** Instead of keeping Shift in its default top-right position, I placed it on easy-to-reach keys — normally used for characters. But as one-shot modifiers. Just tap Shift without needing to hold it down and the next keystroke gets capitalized. This eliminated all finger strain from holding Shift.
+Then came another eureka-moment: **shifting Shift itself.** Instead of keeping Shift in its default bottom-right-position, I placed it on easy-to-reach keys — normally used for characters. I also changed Shift to become a one-shot modifiers. That means you just tap the Shift-key and can release it before hitting the character key. No need to hold keep Shift held down to get the next keystroke get capitalized. This eliminated all finger strain from holding Shift.
 
 The last major discovery was that the B-key position on a standard keyboard had to be skipped, when designing for both standard row-staggered and split columnar keyboards. This constraint became a key design decision.
 
@@ -93,7 +93,7 @@ After the initial keybr.com practice, I didn't practice intensively during those
            class="fullwidth"
            caption="" >}}
 
-By 2024, I settled on the complete system with bottom-row modifiers. Until then I was using standard row-stagger keyboards, but in a split version. I loved my UHK 60 v2. At the time I finalized my layout I switched to a columnar split keyboard. That just feels more natural and makes total sense to have the left and right hand totally symmetrical. Currently I am using a custom Lily58, which uses a wide main thumb key for more comfortable modifier access. That is different from most ergonomic split keyboards, which mostly use only 1u wide thumb keys. 
+By 2024, I settled on the complete system with bottom-row modifiers. Until then I was using standard row-stagger keyboards, but in a split version. I loved my programmable UHK 60 v2. But around the time I finalized my layout I also made the switch to a columnar split keyboard. That just feels more natural. It only makes sense to have the left and right hand totally symmetrical. Currently I am using a custom Lily58, which uses a wide main thumb key for improved comfort. That is different from most ergonomic split keyboards, which mostly use only 1u wide thumb keys. 
 
 I'm not tweaking anymore. The system is optimized. The problem I set out to solve — symbols trapped behind AltGr, navigation unreachable from home row, and later, multi-language typing efficiency — is solved. And it works on both standard row-staggered keyboards and split ergonomic boards.
 
