@@ -3,7 +3,7 @@ title: "My Keyboard Journey — From QWERTZ to anymak:END"
 description: "Why I abandoned decades of QWERTZ typing and in the end created my own keyboard layout anymak:END. A journey toward comfortable, multi-language optimized typing."
 date: 2025-12-26
 cover:
-  image: "qwertz2anymak.end.png"  # Relative to static/ or page bundle
+  image: "typing journey pexels-suzyhazelwood-1303835.jpg"  # Relative to static/ or page bundle
   alt: "My Keyboard Journey"
   caption: ""
   relative: true  # For page bundles
