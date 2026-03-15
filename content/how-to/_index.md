@@ -1,11 +1,4 @@
 ---
-title: "Software"
-description: "Software to create your custom keyboard layout"
+title: "How-To"
+description: "Tips how to realize your custom keyboard layout and more."
 ---
-
-- Kanata
-- QMK, ZMK
-- Vendor specific
-    - UHK
-    - Keyboard.io
-    - Dygma

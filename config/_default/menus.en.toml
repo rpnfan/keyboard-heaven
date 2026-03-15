@@ -17,11 +17,11 @@ name = "Steps"
 pageRef = "/"
 weight = 10
 
-# [[main]]
-# identifier = "how-to"
-# name = "How-To"
-# pageRef = "/how-to/"
-# weight = 20
+[[main]]
+identifier = "how-to"
+name = "How-To"
+pageRef = "/how-to/"
+weight = 20
 
 # [[main]]
 # identifier = "spacemak"
