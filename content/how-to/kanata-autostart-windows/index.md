@@ -14,10 +14,12 @@ weight: 2
 
 ## Why you cannot put Kanata in the Autostart folder
 
-To start Kanata automatically with Windows, the Autostart folder is the obvious first choice — but it has a limitation. Kanata (LLHook version) only becomes active after login. While placing a shortcut in the Autostart folder works for most applications, it will not work for Kanata when you need to run it with administrator rights — which is required for Kanata to function in Terminal windows or other programs that run elevated.
+To start Kanata automatically with Windows, the Autostart folder is the obvious first choice — but it has a limitation. While placing a shortcut in the Autostart folder works for most applications, it will not work for Kanata when you need to run it with administrator rights — which is required for Kanata to function in terminal windows or other programs that might need to run elevated.
 
 
 ## Using Task Scheduler to automatically start Kanata at login
+
+ To automatically start Kanata at logon the Task Scheduler allows 
 
 1. Save the Kanata executable in a folder where you keep your portable applications. A convenient location for most Windows users is something like `C:\portableApps\Kanata\kanata_windows_gui_winIOv2_x64.exe`.
 2. Store your Kanata `.kbd` config files in the same folder. If you use only one config file, naming it `kanata.kbd` is most convenient, as Kanata will find it automatically. You can also use multiple config files with freely chosen names. I use three: two for different keyboard layouts, and a third empty config file that effectively disables Kanata — useful for quick debugging or when someone else needs to use your PC with the default layout.
@@ -46,7 +48,7 @@ and fill in the following details:
            caption="" >}}
 
 **Why add a startup delay?**
-A delay ensures Kanata does not launch before all required Windows components have loaded. Starting too early can cause Kanata to malfunction — for example, some key remaps may not respond, or the taskbar icon may not appear. Both issues are resolved with a sufficient delay. Experiment with different values to find what works for your system. On my ARM64 laptop a 30-second delay is enough, while my x86 machine needs 45 seconds. Windows appears to reach a ready state faster on ARM64.
+A delay ensures Kanata does not launch before all required Windows components have loaded. Starting too early can cause Kanata to malfunction — for example, some key remaps may not respond, or the taskbar icon may not appear. Both issues are resolved with a sufficient delay. Experiment with different values to find what works for your system. On my ARM64 laptop a 15-second delay is enough, while my x86 machine needs 45 seconds to be on the safe side. Windows appears to reach a ready state faster on ARM64.
 
 6. Under **Actions**, create a new action:
 {{< figure src="ts3.png"
@@ -92,3 +94,10 @@ kanata config to deactivate all kanata commands (switch off basically)
            caption="" >}}
 
 8. Save the task. You can test it immediately by right-clicking and selecting **Run**. On the next login, the task will start Kanata automatically. Note that the login screen uses the default Windows keyboard layout — Kanata is not active there.
+
+## Kanata LLHook vs. interception driver
+As a side note on why this guide uses the LLHook version:
+
+The Interception driver variant of Kanata would generally be preferable — it operates at a lower level and is active even on the login screen. However, as of March 2026 it has a significant limitation: it fails to detect the keyboard after a reconnect and requires a full system restart to recover. Work is underway on a new open-source Interception driver that would address this, but it is not yet available.
+
+For now, the LLHook version is the more practical choice for most users. Its main limitation is that some keyboard shortcuts are not recognized correctly in certain programs — most work fine, but a few do not. This is a consequence of how the [Windows keyboard input chain](/deep-dive/windows-keyboard-chain)  is structured.
