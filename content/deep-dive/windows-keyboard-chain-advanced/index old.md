@@ -14,7 +14,7 @@ weight: 3
 
 ## Introduction
 
-The [previous article](/deep-dive/windows-keyboard-chain)  explained how Windows transforms keyboard hardware into input through the HID → Scancode → VK → Layout chain (if unfamiliar with these terms, review that piece first). But that explanation left important questions: How do you actually access special characters like é, ñ, or €? Why do some keyboard remapping tools cause dead keys to stop working? How do software remapping layers interact with the Windows keyboard system?
+The explained how Windows transforms keyboard hardware into input through the HID → Scancode → VK → Layout chain. But that explanation left important questions: How do you actually access special characters like é, ñ, or €? Why do some keyboard remapping tools cause dead keys to stop working? How do software remapping layers interact with the Windows keyboard system?
 
 This article explores the practical methods for accessing special characters, the limitations and quirks of dead keys, why Input Method Editors aren't suitable for Western keyboards, and how software remapping layers intercept and transform input at different levels.
 
@@ -117,7 +117,7 @@ European layouts (French, Portuguese, Spanish) for accents: acute (´), grave (`
 
 ## Part 2: Why Dead Keys Can Be Problematic
 
-Dead keys are powerful but fragile. Understanding why they fail is crucial for avoiding frustration — especially because this is why hook-based remapping tools risk breaking them, a problem explored in Part 4.
+Dead keys are powerful but fragile. Understanding why they fail is crucial for avoiding frustration.
 
 ### Hook-Based Remapping Destroys Dead Key State
 
@@ -181,7 +181,7 @@ Result: Shortcut doesn't work
 
 ## Part 3: Input Method Editors (IME) — Not for Western Keyboards
 
-Some readers may wonder whether Input Method Editors could solve these problems of accessing special characters and building custom layers; they cannot, for important reasons. IMEs are designed for languages with large character sets (Japanese, Chinese, Korean) and are **not suitable for Western keyboard remapping** despite sometimes appearing as an option.
+Input Method Editors are designed for languages with large character sets (Japanese, Chinese, Korean). They are **not suitable for Western keyboard remapping** despite sometimes appearing as an option.
 
 ### What IME Does
 
@@ -213,7 +213,7 @@ If you need layers for navigation or function keys, IME doesn't help.[4][7]
 
 **2. Per-Application Mode State**
 
-Windows remembers your IME mode **per application** — a design choice that reflects IME's intended use case (language switching for single-language contexts). Switch between Notepad (Hiragana mode) and Firefox (Alphanumeric mode), and Firefox reverts to whatever mode you last used there. **You cannot rely on consistent mode across applications** [5]. While you could write an AutoHotkey script to force IME mode globally, this becomes a workaround on top of a workaround and negates IME's simplicity.
+Windows remembers your IME mode **per application**. Switch between Notepad (Hiragana mode) and Firefox (Alphanumeric mode), and Firefox reverts to whatever mode you last used there. **You cannot rely on consistent mode across applications.**[5]
 
 **3. Non-Japanese Keyboard Compatibility**
 
@@ -261,8 +261,6 @@ Hardware key → Firmware processes → Modified HID usage ID → Windows HID dr
 
 **Where it operates:** Via the WH_KEYBOARD_LL low-level keyboard hook, which intercepts **before messages are posted to the application's message queue**, but **after Windows has already generated the VK code**.
 
-**Privilege model:** Without admin rights, Kanata can only intercept input to user-level programs; it cannot affect processes running as administrator (such as admin PowerShell or admin Command Prompt). With admin rights, it can affect all programs system-wide. The Article ["Best practice to launch Kanata with Windows"](/how-to/kanata-autostart-windows/) outlines a reliable way to integrate Kanata with Windows.
-
 ```
 Hardware keystroke
   ↓
@@ -309,7 +307,7 @@ Example: Remap A key to B key
 - **Advantages:** Accessible (scripts vs. C code); easy to disable; no driver development needed; can remap to different characters by modifying VK codes
 - **Disadvantages:** Destroys dead key state if calling `ToUnicode`[2][9]; interferes with hotkey recording; some applications bypass hooks (raw input games); performance overhead; does not affect elevated privilege programs without admin rights
 
-**The dead key problem:** If the hook calls `ToUnicode` to examine or process input, it destroys any active dead key state (as explained in Part 2). This is why dead keys stop working when using certain remapping tools. A well-designed hook that only modifies VK codes (without calling `ToUnicode`) won't destroy dead keys.
+**The dead key problem:** If the hook calls `ToUnicode` to examine or process input, it destroys any active dead key state. This is why dead keys stop working when using certain remapping tools. A well-designed hook that only modifies VK codes (without calling `ToUnicode`) won't destroy dead keys.
 
 
 
@@ -329,12 +327,12 @@ Hardware key → Interception driver intercepts (BEFORE HID processing) → Modi
 
 **Trade-offs:**
 - **Advantages:** Dead key state is safe (operates before Windows kernel buffer); more powerful than LLHOOK for system-wide coverage; affects privileged programs
-- **Disadvantages:** Requires kernel driver installation; more complex setup; Interception driver source hasn't been updated since 2017, though Kanata bundles a maintained copy in releases; known stability issues[12]
+- **Disadvantages:** Requires kernel driver installation; more complex setup; requires Interception driver (https://github.com/oblitum/Interception) which is not actively maintained (last update 2017); known stability issues[12]
 
 **Known issues:**
 - Stability issues reported on Windows 11: sleeping/unplugging devices can cause input failures[12]
 - Some less-frequently used keys not supported or handled correctly
-- Interception driver source is unmaintained, though Kanata actively maintains its bundled copy
+- Driver maintenance status uncertain
 
 
 
@@ -427,9 +425,9 @@ Kanata, a popular open-source keyboard remapper, offers two different Windows im
 - Use **dead keys** if you need true composition (but understand the limitations and avoid tools that call `ToUnicode`)
 
 **For general keyboard remapping or custom layers:**
-- **Firmware (QMK)** if you have a programmable keyboard (cleanest, most powerful, fully reliable; requires C knowledge and 2–4 hours for first setup, but extensive community documentation eases the curve; some boards offer web configurators requiring no code)
+- **Firmware (QMK)** if you have a programmable keyboard (cleanest, most powerful, fully reliable)
 - **Kanata LLHOOK** (`kanata.exe`) if you need quick cross-platform remapping (accessible, may have dead key issues depending on configuration; can be run with or without admin)
-- **Kanata Interception** (`kanata_wintercept.exe`) if you need dead key support, game compatibility, or system-wide coverage; requires accepting stability caveats and unmaintained driver source
+- **Kanata Interception** (`kanata_wintercept.exe`) if you need dead key support, game compatibility, or system-wide coverage; requires accepting stability caveats and unmaintained driver status
 - **AutoHotkey** for simple scripting (accessible, but test with dead keys carefully)
 - Avoid attempting to use IME for general layers — it's strictly for language input
 
