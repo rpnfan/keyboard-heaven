@@ -2,6 +2,7 @@
 title: "Advanced Windows Keyboard Input: Special Characters, Dead Keys, and Software Remapping"
 description: "This article explores the practical methods for accessing special characters, the limitations and quirks of dead keys, why Input Method Editors aren't suitable for Western keyboards, and how software remapping layers intercept and transform input at different levels."
 date: 2026-01-10
+lastmod: 2026-03-17  # Updates to current date on edit
 cover:
   image: "keyboard-chain-advanced.jpg"  # Relative to static/ or page bundle
   alt: "Windows Keyboard Chain - Advanced"
