@@ -2,7 +2,7 @@
 title: "Keyboard Layout Analyzers Explained: What They Can (and Can't) Do"
 description: "Keyboard layout analyzers are powerful tools—but they have significant blind spots. Learn what they can and can't tell you about keyboard optimization, and how to get most out of them."
 date: 2026-01-11
-lastmod: 2026-03-17
+lastmod: 2026-03-17  # Updates to current date on edit
 cover:
   image: "keyboard-analyzer.png"  # Relative to static/ or page bundle
   alt: "Keyboard Analyzers"
@@ -10,6 +10,8 @@ cover:
   relative: true  # For page bundles
 
 weight: 1
+
+draft: true
 ---
 
 
@@ -53,7 +55,7 @@ Determining proper weights would require controlled experiments with both traine
 
 Layout analyzers examine the character positions of the base layer (where all the letters live). They mostly ignore one of the biggest ergonomic factors: **where your modifier and layer-switch keys are placed, and how they're implemented.**
 
-This matters in several ways: shifted characters require Shift; language-specific characters like umlauts or accents often require layer keys or dead keys; one-shot vs held layer keys have very different ergonomic costs; and timed approaches like auto-shift or combos — where a tap or a brief hold produces different output — aren't modelled at all.
+This matters in several ways: shifted characters require Shift; language-specific characters like umlauts or accents often require layer keys or dead keys; one-shot vs held layer keys have very different ergonomic costs; and approaches like auto-shift or combos aren't considered at all.
 
 In QWERTY, Right-Shift sits on the pinky at the bottom corner — a stretch that's annoying for English and genuinely taxing for German, where capitalizing nouns is mandatory and Shift is in constant use. The position of Shift matters and should be weighed accordingly. For Hungarian, with heavy diacritics and multiple layer-switch keys, the placement of *all* layer keys becomes crucial. An analyzer ignoring this will produce a layout that feels awkward in practice.
 
@@ -67,7 +69,7 @@ These limitations don't exist in isolation. They come on top of several structur
 
 **The corpus problem.** An analyzer needs a text corpus to analyze, and different corpora produce different "optimal" layouts. A typing-test corpus favors general-purpose layouts; a programming corpus prioritizes symbol access; a German corpus makes Shift placement more important. An optimizer produces a layout optimal for *that corpus* — not necessarily for your actual typing. If you code half the time and write messages the other half, but the analyzer trained only on prose, the result may feel wrong in practice.
 
-**The hardware variability problem.** Analyzers typically assume a standard ANSI or ISO row-staggered keyboard. In reality, keyboards vary enormously: column-staggered splits differ significantly in their stagger amount; ergonomic splits offer varying thumb cluster sizes and key counts; key spacing (MX vs Choc), thumb key dimensions, and keycap profile all affect which keys are comfortable and precise to use; nontraditional devices like the Svalboard are difficult to map meaningfully to standard analyzer assumptions; and hand size determines what's reachable at all. A layout optimized for one hardware type may feel less natural on another, and the "optimal" reach map differs accordingly.
+**The hardware variability problem.** Analyzers typically assume a standard ANSI or ISO row-staggered keyboard. In reality, keyboards vary enormously: column-staggered splits have different stagger amounts; thumb cluster sizes and key dimensions differ; even keycap profiles affect which keys are comfortable to use. A layout optimized for one hardware type may feel less natural on another, and the "optimal" reach map differs accordingly.
 
 **The search algorithm problem.** Analyzers use algorithms — usually simulated annealing or genetic algorithms — to search the space of possible layouts. The search space is enormous (47 keys, tens of thousands of possible bigrams), and perfect optimization is computationally infeasible. The algorithm may find a very good layout that isn't the *best* one — like a hiker who climbs a tall hill and declares it the peak without seeing the taller mountain nearby. Optimizer-generated layouts are usually good starting points, but not guaranteed to be globally optimal.
 
@@ -79,15 +81,9 @@ All of these factors interact in real layouts. Exploring three concrete examples
 
 **anymak:END** was optimized across equal weighting of English, German, and Dutch, and designed to work identically on both row-staggered and column-staggered keyboards — avoiding the ANSI B-key position entirely to preserve the same fingering across hardware types. Its SFB count is higher at 1.7%, but most of those SFBs fall between the top row and home row on strong fingers (index/middle) — the comfortable type. Shift is placed in an easily reachable position and implemented as one-shot on both hands, eliminating Shift-related SFBs and freeing hand movement between keystrokes.
 
-An analyzer comparing these two will show Graphite winning on SFBs and the layouts roughly equivalent on hand alternation. That's accurate as far as it goes. What it misses: anymak:END's SFBs are structurally cheaper than Graphite's count implies; its Shift design gives a practical advantage for German that doesn't appear in any metric; and it was deliberately built to feel the same across different hardware, something no standard analyzer evaluates. If you type German regularly, the Shift optimization alone may outweigh the SFB difference — but the numbers won't tell you that. And even with hardware-aware design, an analyzer won't fully reflect actual finger effort unless it's configured with the exact key positions and reach characteristics for the specific user and their keyboard.
+An analyzer comparing these two will show Graphite winning on SFBs and the layouts roughly equivalent on hand alternation. That's accurate as far as it goes. What it misses: anymak:END's SFBs are structurally cheaper than Graphite's count implies; its Shift design gives a practical advantage for German that doesn't appear in any metric; and it was deliberately built to feel the same across different hardware, something no standard analyzer evaluates. If you type German regularly, the Shift optimization alone may outweigh the SFB difference — but the numbers won't tell you that.
 
-**Enthium** illustrates hardware dependency in a starker way. It places common characters on thumb keys rather than finger keys.
-
-*What an analyzer sees:* lower distance traveled, different SFB and alternation patterns, and potentially a lower overall effort score.
-
-*What it misses:* thumb keys require a split keyboard with a thumb cluster — the layout can't be used on a standard keyboard or laptop; the learning curve is high because thumb-based placement is fundamentally different from standard finger typing; and thumb ergonomics differ from finger ergonomics in ways that cause some users discomfort with heavy thumb-intensive layouts.
-
-The raw verdict is that Enthium is efficient. Whether that's true for you depends entirely on factors the analyzer can't see. Layouts still require human judgment.
+**Enthium** illustrates hardware dependency very clearly. It places common characters on thumb keys rather than finger keys, which gives it lower distance-traveled scores and potentially a lower overall effort score. What the analyzer doesn't model: thumb keys require a split keyboard with a thumb cluster and can't be used on a laptop; the learning curve is high because thumb-based placement is fundamentally different from standard finger typing; and thumb ergonomics differ from finger ergonomics in ways that cause some users discomfort with heavy thumb-intensive layouts. The analyzer says Enthium is efficient; whether it's right for you depends entirely on factors it can't see.
 
 ## How to Use Analyzers Wisely
 
@@ -99,15 +95,13 @@ Given these limitations, here's how to get genuine value from layout analyzers:
 
 **3. Match the corpus to your actual typing.** If you write code, use a programming corpus. If you write primarily in German, use German text with proper capitalization and umlauts. Make the corpus large enough — the opt documentation has guidance on how to verify this.
 
-**4. Factor in layer-key placement manually.** Ask yourself: where are my Shift and layer keys? Are they one-shot or held, or do you use timed approaches like auto-shift or combos, or home-row mods? Are they on weak fingers or strong ones, or on thumbs? If you type heavily in a language with frequent capitals or diacritics, is layer placement considered? This is a significant portion of the optimization space that analyzers routinely miss.
+**4. Factor in layer-key placement manually.** Ask yourself: where are my Shift and layer keys? Are they one-shot or held, or do you use auto-shift, combos, or home-row mods? Are they on weak fingers or strong ones, or on thumbs? If you type heavily in a language with frequent capitals or diacritics, is layer placement considered? This is a significant portion of the optimization space that analyzers routinely miss.
 
 **5. Test numerically similar layouts by actually typing.** When an analyzer shows two layouts as nearly equivalent, don't try to pick based on small score differences. Try both with a layout simulator that remaps your current layout to the candidate; type real text that reflects your actual use. Frequently used words are a good start; it's also worth identifying "ugly" words — sequences that play to a layout's weak spots. Cyanophage's analyzer is useful for finding these. Your hands will tell you things the metrics won't.
 
-**6. Use the analyzer to understand trade-offs, not to declare a winner.** When you have a shortlist of 2–3 layouts, use the analyzer to characterize what each one prioritizes: Layout A optimizes for hand alternation but has more SFBs; Layout B minimizes SFBs but uses more same-hand patterns; Layout C prioritizes inward rolls at the cost of distance. This framing helps you predict which layout will suit your hands. The numerical winner may not be the best choice for you.
+**6. Consider what hardware the layout was designed for.** If a layout was optimized for one keyboard type, some of its advantages may not carry over to yours. Where possible, configure the analyzer to reflect your actual physical key arrangement.
 
-**7. Consider what hardware the layout was designed for.** If a layout was optimized for one keyboard type, some of its advantages may not carry over to yours. Where possible, configure the analyzer to reflect your actual physical key arrangement.
-
-**8. Verify how metrics are weighted.** Layout optimizers carry two kinds of weights: the effort value assigned to each key position (reflecting how hard that key is to reach), and the relative weight given to each metric — how much SFBs are penalized versus hand alternation rewarded, for example. If either set of weights is based on guesswork rather than validated data, the combined effort score is less reliable than it appears. Check both: adjust per-key position values to match your hardware and hand size, and consider whether the metric weights reflect what actually matters to you.
+**7. Verify how metrics are weighted.** If a layout optimizer uses guessed weights, its combined effort score is less reliable than it appears. Check the per-key effort values and adjust them to reflect your own assessment of which keys are harder or easier to reach on your specific hardware.
 
 ## What Makes a Good Analyzer?
 
@@ -122,7 +116,7 @@ No current analyzer does all of these. opt comes closest in terms of documentati
 > - They provide valuable objective data and save enormous time — but their scores rest on unvalidated weights and simplifying assumptions.
 > - Not all bad motions are equal: an SFB on a strong finger between top row and home row costs less than one on a weak finger reaching to the bottom row. Analyzers typically can't see this distinction.
 > - Combined effort scores may be less meaningful than they appear. Compare individual metrics separately; differences in the total score can be smaller than the underlying measurement uncertainty.
-> - Layer-key placement — where Shift lives, whether it's one-shot, held, or timed, how language-specific characters are entered — is a major ergonomic factor that most analyzers ignore entirely.
+> - Layer-key placement — where Shift lives, whether it's one-shot or held, how language-specific characters are entered — is a major ergonomic factor that most analyzers ignore entirely.
 > - Analyzer results depend heavily on corpus, hardware assumptions, and search algorithm limitations. A layout optimal for one context may not be optimal for yours.
 > - When layouts are numerically close, test them by typing real text. Your hands know things the metrics don't.
 
