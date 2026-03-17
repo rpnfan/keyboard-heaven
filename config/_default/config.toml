@@ -33,6 +33,10 @@ enableGitInfo = true
 
 ignoreFiles = ["\\.af$", "\\.afphoto$"] # Ignoriere Affinity Designer und Photo Dateien im Content-Verzeichnis 
 
+[frontmatter]
+  lastmod = ["lastmod", ":git", "date"]
+
+
   # customCSS = ["css/custom.css"]
 
 # [params.footer]
