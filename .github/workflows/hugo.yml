@@ -6,21 +6,23 @@ on:
       - main
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write      # Added: Allows git push/commit during deploy
+  pages: write         # Added: For GitHub Pages
+  id-token: write      # Added: OIDC auth for Pages
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5  # Updated: Node 24 compatible
+        uses: actions/checkout@v5
         with:
           submodules: false
+          fetch-depth: 0     # Added: Full history for Hugo modules/tags
+          token: ${{ secrets.GITHUB_TOKEN }}  # Explicit token for auth
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3  # Updated: Node 24 compatible
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
@@ -29,7 +31,9 @@ jobs:
         run: hugo --minify --environment production
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4  # Updated: Node 24 compatible
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
+          # Optional: Add if overwriting history issues
+          # force_orphan: true
