@@ -9,22 +9,25 @@ cover:
   relative: true  # For page bundles
 ---
 
-## Quick Start
-**Was ist es?**
+## TL;DR
 
-Ein kostenloses Add-on für die deutsche Tastaturbelegung, das schwer erreichbare Zeichen (Klammern, @, €) und Navigation in die Grundreihe bringt – ohne die Standard-Belegung zu verändern.
+ DeutschlandPlus ist ein kostenloses Add-on für die deutsche Tastaturbelegung, das schwer erreichbare Zeichen (Programmier-Zeichen `[ ] { } \`, `@`, `€`) und Navigation in die Grundreihe bringt – ohne die Standard-Belegung zu verändern.
 
-**Was bringt es?** 
-- Programmier-Zeichen `[ ] { } \` und mehr ohne AltGr erreichbar
-- Pfeiltasten, Pos1, Ende, Backspace, Delete direkt aus Grundstellung
-- Weniger Handbewegungen ⇒ bequemer und potentiell weniger Fehler
+Mit DeutschlandPlus tippst du:
+- **Entspannter:** Hände bleiben in der Grundstellung
+- **Bequemer:** Keine langen Griffe zum Navigationblock oder zur AltGr-Taste
+- **Navigation:** Pfeiltasten, Pos1, Ende, Backspace, Delete direkt aus Grundstellung
+- **Sicherer:** Weniger Fehler durch weniger Handbewegungen
+- **Kompatibel:** Die deutsche Standard-Belegung bleibt erhalten
 
-**Wie bekomme ich es?**
+Für mich hat sich DeutschlandPlus **seit 2007** bewährt. Ich habe es über 15 Jahre genutzt, bis ich ein eigenes Tastaturlayout für die Nutzung mit Englisch, Deutsch und Niederländisch entwickelt habe (siehe unten).
+
+**Download**
 
 [Kostenloses AutoHotkey-Programm](https://github.com/rpnfan/DeutschlandPlus), sogar installationsfrei von USB-Stick nutzbar. Details weiter unten.
 
 ---
-## Das Problem: Warum AltGr nervt
+## Das AltGr-Problem
 {{< figure src="AltGr.png"
            alt="AltGr Taste"
            class="fullwidth"
@@ -41,7 +44,7 @@ Das ist ein echtes Hindernis beim Blindschreiben, denn:
 **DeutschlandPlus bietet eine elegante Lösung:** Ein erweitertes deutsches Layout, das diese Probleme komplett behebt – ohne die Standard-Belegung zu verändern.
 
 
-## Die Lösung: DeutschlandPlus im Überblick
+## CapsLock als Modifier
 
 {{< figure src="DeutschlandPlus_Belegung.png"
            alt="DeutschlandPlus Belegung eingezoomt"
@@ -71,7 +74,6 @@ Die **CapsLock-Taste** wird zur zusätzlichen Modifier-Taste umfunktioniert. Dam
 **Anpassbarkeit:** Wenn die vorgeschlagene Belegung der neuen Funktionen nicht gefällt, lässt sich das leicht an eigene Wünsche und Bedürfnisse anpassen.
 
 
-## Warum funktioniert das so gut?
 
 Beim Blindschreiben (10-Finger Tastschreiben) gilt die Regel: **Shift mit der anderen Hand als die Taste, die man drücken will.**
 
@@ -82,8 +84,6 @@ Das gleiche Prinzip nutzt DeutschlandPlus mit CapsLock. Da CapsLock mit der link
 
 
 ## Sonderzeichen: Die Details
-
-### Alle AltGr-Zeichen sind jetzt bequem erreichbar
 
 Beispiele:
 - **Eckige Klammern:** `CapsLock + 8` = `[`, `CapsLock + 9` = `]`
@@ -96,7 +96,7 @@ Das funktioniert auch auf US-Tastaturen (ANSI, 104 Tasten), die die deutsche `<>
 
 ### Textkürzel (Hotstrings)
 
-Ergänzend zur CapsLock-Ebene bietet DeutschlandPlus auch Textkürzel, sogenannte Hotstrings, für weitere Sonderzeichen.
+Durch die begrenzte Zahl an Tasten lassen sich nicht alle Zeichen sinnvoll auf einer Tastatur unterbringen. Speziell Zeichen die man nur hin und wieder benötigt kann man daher statt dessen über Textkürzel realisieren. Die in AutoHotkey sogenannten Hotstrings, sind hier die passende Lösung.
 
 Ein Beispiel:
 - Tippe `=>`  → wird automatisch zu `⇒` (Doppelpfeil)
@@ -139,13 +139,11 @@ Zusätzlich erreichbar:
 
 
 
-## Erlernen & Integration: Schritt für Schritt
+## Lernkurve und Eingewöhnung
 
 **Erwarte nicht, dass alle Möglichkeiten sofort direkt "in den Fingern sitzen."** Wie jede neue Fertigkeit braucht auch dieses Layout etwas Übung. 
 
-**Zeitplan:**
-- **Die ersten Tage:** Es fühlt sich ungewohnt an, mit dem kleinen Finger die CapsLock-Taste als Layer-Taste zu nutzen. Das ist völlig normal.
-- **Wochen 2–3:** Wer täglich tippt, wird merken, dass die neuen Funktionen anfangen sich natürlich anzufühlen. Du nutzt sie unbewusst.
+In den ersten Tagen fühlt es sich wahrscheinlich noch etwas ungewohnt an, mit dem kleinen Finger die CapsLock-Taste als Layer-Taste zu nutzen. Das ist völlig normal. Aber nach einigen Wochen Nutzung wird man merken, dass die neuen Funktionen anfangen sich natürlich anzufühlen. Und schon bald will man nicht mehr darauf verzichten.
 
 **Empfohlene Lernreihenfolge:**
 1. Starte mit den häufigen Sonderzeichen: `{ } [ ] \ € @`
@@ -192,15 +190,8 @@ Zusätzlich erreichbar:
 
 ---
 
-## Fazit: Entspannter & schneller tippen
 
-Mit DeutschlandPlus tippst du:
-- **Entspannter:** Hände bleiben in der Grundstellung
-- **Schneller:** Keine langen Griffe zum Navigationblock oder zur AltGr-Taste
-- **Sicherer:** Weniger Fehler durch weniger Handbewegungen
-- **Kompatibel:** Die deutsche Standard-Belegung bleibt erhalten
 
-Für mich hat sich DeutschlandPlus **seit 2008** bewährt. Ich habe es über 15 Jahre genutzt, bis ich ein eigenes Tastaturlayout für die Nutzung mit Englisch, Deutsch und Niederländisch entwickelt habe. Damit ist die Tastaturbedienung noch bequemer:
 
 ## Der finale Weg zum Tastatur Himmel
 
@@ -209,7 +200,7 @@ Für mich hat sich DeutschlandPlus **seit 2008** bewährt. Ich habe es über 15 
            class="fullwidth"
            caption="" >}}
 
-Wer noch weiter gehen will und bereit ist von der Standardbelegung ein wenig oder auch komplett abzuweichen findet in [Spacemak](https://github.com/rpnfan/Spacemak) und [Anymak](https://github.com/rpnfan/Anymak) den vermutlich finalen Weg in den Tastatur Himmel :-) 
+DeutschlandPlus wurde entwickelt, um 100 % kompatibel mit einer Standardtastatur und der QWERTZ-Belegung zu bleiben. Für wen diese Kompatibilität nicht entscheidend ist, der findet in [Spacemak](https://github.com/rpnfan/Spacemak) und [Anymak](https://github.com/rpnfan/Anymak) den vermutlich finalen Weg in den Tastatur Himmel :-) 
 
 Spacemak [1] kann man quasi als Nachfolger von DeutschlandPlus betrachten, da es die Kompatibilität mit dem Standardlayout auch so gut wie beibehält. Je nach deinen Wünschen oder Zielen ist das ggf. noch spannender als DeutschlandPlus, da es noch viel mehr Tasten für Shortcuts (copy, paste, Tab-Navigation) und noch mehr Zeichen nutzbar macht. Anymak packt dann letztlich obendrein noch eine eigene Tastaturbelegung obendrauf, so dass die Nachteile von QWERTY / QWERTZ umgangen werden.
 

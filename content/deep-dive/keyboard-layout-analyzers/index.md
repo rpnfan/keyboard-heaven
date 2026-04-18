@@ -29,9 +29,9 @@ All analyzers try to score how comfortable or easy certain finger movements are.
 
 ### Limitation 1: Not All "Bad Motions" Are Equal, But Analyzers Treat Them As Equal
 
-Same-finger bigrams (SFBs) are a good example. An SFB on a strong finger (index or middle finger) from the top row back to the home row (like E-D in QWERTY) is fundamentally different from an SFB on a weak finger (ring finger or pinky) from the home row down to the bottom row (like S-Z in QWERTY).
+**Same-finger bigrams (SFBs)** are a good example. An SFB on a strong finger (index or middle finger) from the top row back to the home row (like E-D in QWERTY) is fundamentally different from an SFB on a weak finger (ring finger or pinky) from the home row down to the bottom row (like S-Z in QWERTY).
 
-**Why the difference?** When you press E-D, your finger leaves the home position briefly and returns naturally as part of the next keystroke. The motion still flows. Depending on the keycaps you might even be able to "rake" the finger from one key to the other. In contrast, S-Z requires your weak finger to stretch down and return to home position — a much more disruptive motion.
+When you press E-D, your finger leaves the home position briefly and returns naturally as part of the next keystroke. The motion still flows. Depending on the keycaps you might even be able to "rake" the finger from one key to the other. In contrast, S-Z requires your weak finger to stretch down and return to home position — a much more disruptive motion.
 
 What analyzers typically do is count both as "1 SFB" with equal weight. These motions have different real ergonomic costs, so a layout with a moderate count of SFBs might actually feel *better* than one with fewer, if most of those SFBs are the harmless top-to-home variety on strong fingers.
 
