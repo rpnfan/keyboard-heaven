@@ -83,9 +83,8 @@ Das gleiche Prinzip nutzt DeutschlandPlus mit CapsLock. Da CapsLock mit der link
 
 
 
-## Sonderzeichen: Die Details
+### AltGr-Sonderzeichen Übersicht
 
-Beispiele:
 - **Eckige Klammern:** `CapsLock + 8` = `[`, `CapsLock + 9` = `]`
 - **Geschweifte Klammern:** `CapsLock + 7` = `{`, `CapsLock + 0` = `}`
 - **Backslash:** `CapsLock + -` = `\` (statt AltGr + `-`)
@@ -193,14 +192,14 @@ In den ersten Tagen fühlt es sich wahrscheinlich noch etwas ungewohnt an, mit d
 
 
 
-## Der finale Weg zum Tastatur Himmel
+## Der finale Weg zum Tastaturhimmel
 
 {{< figure src="Spacemak_navigation_layer.png"
            alt="Spacemak Navigation layer"
            class="fullwidth"
            caption="" >}}
 
-DeutschlandPlus wurde entwickelt, um 100 % kompatibel mit einer Standardtastatur und der QWERTZ-Belegung zu bleiben. Für wen diese Kompatibilität nicht entscheidend ist, der findet in [Spacemak](https://github.com/rpnfan/Spacemak) und [Anymak](https://github.com/rpnfan/Anymak) den vermutlich finalen Weg in den Tastatur Himmel :-) 
+DeutschlandPlus wurde entwickelt, um 100 % kompatibel mit einer Standardtastatur und der QWERTZ-Belegung zu bleiben. Für wen diese Kompatibilität nicht entscheidend ist, der findet in [Spacemak](https://github.com/rpnfan/Spacemak) und [Anymak](https://github.com/rpnfan/Anymak) den vermutlich finalen Weg in den Tastaturhimmel :-) 
 
 Spacemak [1] kann man quasi als Nachfolger von DeutschlandPlus betrachten, da es die Kompatibilität mit dem Standardlayout auch so gut wie beibehält. Je nach deinen Wünschen oder Zielen ist das ggf. noch spannender als DeutschlandPlus, da es noch viel mehr Tasten für Shortcuts (copy, paste, Tab-Navigation) und noch mehr Zeichen nutzbar macht. Anymak packt dann letztlich obendrein noch eine eigene Tastaturbelegung obendrauf, so dass die Nachteile von QWERTY / QWERTZ umgangen werden.
 
