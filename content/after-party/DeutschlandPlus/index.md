@@ -95,7 +95,7 @@ Das funktioniert auch auf US-Tastaturen (ANSI, 104 Tasten), die die deutsche `<>
 
 ### Textkürzel (Hotstrings)
 
-Durch die begrenzte Zahl an Tasten lassen sich nicht alle Zeichen sinnvoll auf einer Tastatur unterbringen. Speziell Zeichen die man nur hin und wieder benötigt kann man daher statt dessen über Textkürzel realisieren. Die in AutoHotkey sogenannten Hotstrings, sind hier die passende Lösung.
+Durch die begrenzte Zahl an Tasten lassen sich nicht alle Zeichen sinnvoll auf einer Tastatur unterbringen. Speziell Zeichen die man nur hin und wieder benötigt kann man daher stattdessen über Textkürzel realisieren. Die in AutoHotkey sogenannten Hotstrings, sind hier die passende Lösung.
 
 Ein Beispiel:
 - Tippe `=>`  → wird automatisch zu `⇒` (Doppelpfeil)

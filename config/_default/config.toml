@@ -13,6 +13,10 @@ enableGitInfo = true
   homepage = "https://rpnfan.github.io/keyboard-heaven/"
 
 [params]
+
+  googleAnalytics = "G-FL0MNX4FN7"
+
+
   # Footer anzeigen, damit Social Icons dort sichtbar sind
   hideFooter = false
 
