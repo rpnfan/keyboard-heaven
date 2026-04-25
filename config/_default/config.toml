@@ -14,8 +14,6 @@ enableGitInfo = true
 
 [params]
 
-  googleAnalytics = "G-FL0MNX4FN7"
-
 
   # Footer anzeigen, damit Social Icons dort sichtbar sind
   hideFooter = false
@@ -41,6 +39,12 @@ ignoreFiles = ["\\.af$", "\\.afphoto$"] # Ignoriere Affinity Designer und Photo 
   lastmod = ["lastmod", ":git", "date"]
 
 
+
+[services]
+  [services.googleAnalytics]
+    ID = "G-FL0MNX4FN7"
+
+    
   # customCSS = ["css/custom.css"]
 
 # [params.footer]
