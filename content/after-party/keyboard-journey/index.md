@@ -44,7 +44,7 @@ The answer required something I'd avoided: changing the base layout itself.
 
 I tried Minimak — swapping just a few keys. But I quickly realized the gains would be limited. Next was Colemak. That works reasonably well for English, but it's much worse for non-English languages.
 
-Because I type in German and Dutch besides English, I developed my own custom keyboard layout. Using Colemak's design principles (minimize changes, keep XCV on the left for shortcuts), I created a layout that achieved nearly Colemak's English performance while performing much better for German, Dutch, and other languages.
+Because I type in German and Dutch besides English, I developed my own custom keyboard layout. Using Colemak's design principles (minimize changes, keep XCV on the left for shortcuts), I [created a layout](https://forum.colemak.com/topic/2917-new-multilang-layout-suited-for-english-german-dutch-french/#p24845) that achieved nearly Colemak's English performance while performing much better for German, Dutch, and other languages.
 
 I practiced for about one month on keybr.com before making the full switch at around 40 WPM. As I got faster over the coming weeks and reached 50–60 WPM, I realized something disheartening: the left hand felt great, but the right hand was still too busy. Many patterns involved only or mainly the right hand. The improvement wasn't enough to justify the relearning.
 
