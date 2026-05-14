@@ -89,3 +89,80 @@ figure.fullwidth figcaption {
   height: auto;
   object-fit: contain;
 }
+
+
+
+/* ===========================
+   Github-style alert boxes
+   =========================== */
+
+/* Usage in markdown:
+    > [!NOTE] Title
+    > Content goes here.
+  
+    Supported types: NOTE, TIP, IMPORTANT, WARNING, CAUTION
+  */  
+
+  /* ===========================
+   GitHub-style Alert Boxes
+   =========================== */
+
+/* 1. Base Container: Sets the box shape and default look */
+.markdown-alert {
+    padding: 0.6rem 1rem !important;
+    margin: 1.25rem 0 !important;
+    border-left: 0.25rem solid #dfe2e5 !important;
+    background-color: rgba(27, 31, 35, 0.05) !important;
+}
+
+/* 2. The Title: Style for the header text (NOTE, TIP, etc.) */
+.markdown-alert-title {
+    display: block !important;
+    font-weight: 700 !important;
+    color: inherit; /* Or #0969da for Blue */
+    margin-bottom: 8px !important;
+    text-transform: uppercase;
+}
+
+/* 3. Color Variants: Specific overrides for each type */
+
+/* Note (Blue) */
+.markdown-alert-note { 
+    border-left-color: #0969da !important; 
+    background-color: rgba(9, 105, 218, 0.05) !important;
+}
+.markdown-alert-note .markdown-alert-title { color: #0969da !important; }
+
+/* Tip (Green) */
+.markdown-alert-tip { 
+    border-left-color: #1a7f37 !important; 
+    background-color: rgba(26, 127, 55, 0.05) !important;
+}
+.markdown-alert-tip .markdown-alert-title { color: #1a7f37 !important; }
+
+/* Important (Purple) */
+.markdown-alert-important { 
+    border-left-color: #8250df !important; 
+    background-color: rgba(130, 80, 223, 0.05) !important;
+}
+.markdown-alert-important .markdown-alert-title { color: #8250df !important; }
+
+/* Warning (Orange) */
+.markdown-alert-warning { 
+    border-left-color: #9a6700 !important; 
+    background-color: rgba(154, 103, 0, 0.05) !important;
+}
+.markdown-alert-warning .markdown-alert-title { color: #9a6700 !important; }
+
+/* Caution (Red) */
+.markdown-alert-caution { 
+    border-left-color: #cf222e !important; 
+    background-color: rgba(207, 34, 46, 0.05) !important;
+}
+.markdown-alert-caution .markdown-alert-title { color: #cf222e !important; }
+
+/* 4. Cleanup: Prevents extra spacing inside the box */
+.markdown-alert p {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+}

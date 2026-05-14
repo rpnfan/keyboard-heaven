@@ -113,10 +113,6 @@ Cross-platform tools (Kanata, AutoHotkey, Espanso...) are explicitly excluded fr
 
 ### Group 2 — Threshold-timed Mechanisms
 
- > [!NOTE]  
- >
- > Threshold-timed mechanisms require a running process that can observe key timing. They cannot be implemented by static layout tools (XKB symbols files, MSKLC, Ukelele) regardless of platform — the XKB model is stateless with respect to time, and MSKLC/Ukelele produce static layout definitions with no timing logic. On Linux and macOS, tier-3 driver-level daemons (keyd at evdev level, Karabiner-Elements at IOKit level) provide this capability. On Windows, no equivalent driver-level tool is available; threshold-timed mechanisms therefore require a cross-platform daemon such as Kanata running at LLHook level, which is excluded from this table by scope — hence the ✗ across all Windows cells in this group.
-
 | #    | Mechanism                     | Windows 11 | Linux                         | macOS                                                   |
 | ---- | ----------------------------- | ---------- | ----------------------------- | ------------------------------------------------------- |
 | 5    | **Dual-role: tap vs. hold**   |            |                               |                                                         |

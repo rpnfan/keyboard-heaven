@@ -1,5 +1,5 @@
 baseURL = "https://rpnfan.github.io/keyboard-heaven/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Keyboard Heaven"
 theme = "PaperMod"
 publishDir = "docs"

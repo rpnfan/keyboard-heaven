@@ -1,0 +1,16 @@
+{{- $text := .Text -}}
+{{- $type := "" -}}
+
+{{/* Force detection of the marker */}}
+{{- if (findRE `(?i)\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]` $text) -}}
+    {{- $type = (findRE `(?i)NOTE|TIP|IMPORTANT|WARNING|CAUTION` $text 1) | first | lower -}}
+    {{/* Replace the marker with the title and keep the rest of the text */}}
+    {{- $text = $text | replaceRE `(?i)\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s?` "" -}}
+{{- end -}}
+
+<blockquote class="markdown-alert {{ with $type }}markdown-alert-{{ . }}{{ end }}">
+  {{- if $type -}}
+    <p class="markdown-alert-title">{{ $type | upper }}</p>
+  {{- end -}}
+  {{ $text | safeHTML }}
+</blockquote>

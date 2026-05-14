@@ -12,13 +12,15 @@ cover:
 weight: -1
 ---
 
+
+
 # Keyboard Input Methods — And why it matters to be aware of them
 
-This is a first working draft for a coming article. But because I find the tables are potentially already helpful here already an overview of different input methods.
+This is a first working draft for a coming article. But because I find the tables are potentially already helpful here already an overview of different input methods. 
 
 > [!NOTE]  
 >
-> If you have comments how to improve the overview or find errors please post on [Reddit KeyboardLayouts](https://www.reddit.com/r/KeyboardLayouts/). You can also reach me there via my handle *rpnfan* or under the same name via my gmail.com address).
+> If you have comments how to improve the overview or find errors please post on [Reddit KeyboardLayouts](https://www.reddit.com/r/KeyboardLayouts/) (possibly cross-post to [Reddit ErgoMechKeyboards](https://www.reddit.com/r/ErgoMechKeyboards/ as well)). You can also reach me there via my handle *rpnfan* or under the same name via my gmail.com address).
 
 I have divided keyboard input methods into three groups, because those will be relevant when to decide which input mechanism to consider for which type of keyboard activity.
 
@@ -48,7 +50,7 @@ Under the first group you find the most basic input methods, beginning with a si
 
 ### Group 2 — Threshold-timed mechanisms
 
-In this group all input relies on a timing-window. It matters how fast you tap a key or if or how long you hold a key. The advantage is that this enlarges the input options, basically getting much more use out of the limited set of keys you have. The disadvantage is that typing speed matters, your personal typing style needs to be matched to the timing-window and the other way around. That makes the keyboard not universally usable by different people anymore and can also be prone to mis-triggers. Both likely being  a major reason operating systems normally do not support these mechanisms out-of-the-box.
+In this group all input relies on a timing-window. It matters how fast you tap a key or if or how long you hold a key. The advantage is that this enlarges the input options, basically getting much more use out of the limited set of keys you have. The disadvantage is that typing speed matters, your personal typing style needs to be matched to the timing-window and the other way around. That makes the keyboard not universally usable by different people anymore and can also be prone to mis-triggers. Both likely being  a major reason operating systems normally do not support these mechanisms out-of-the-box. 
 
 *(Firmware has a fixed **invisible timing window**; misfires are possible)*
 
@@ -113,22 +115,18 @@ Cross-platform tools (Kanata, AutoHotkey, Espanso...) are explicitly excluded fr
 
 ### Group 2 — Threshold-timed Mechanisms
 
- > [!NOTE]  
- >
- > Threshold-timed mechanisms require a running process that can observe key timing. They cannot be implemented by static layout tools (XKB symbols files, MSKLC, Ukelele) regardless of platform — the XKB model is stateless with respect to time, and MSKLC/Ukelele produce static layout definitions with no timing logic. On Linux and macOS, tier-3 driver-level daemons (keyd at evdev level, Karabiner-Elements at IOKit level) provide this capability. On Windows, no equivalent driver-level tool is available; threshold-timed mechanisms therefore require a cross-platform daemon such as Kanata running at LLHook level, which is excluded from this table by scope — hence the ✗ across all Windows cells in this group.
-
-| #    | Mechanism                     | Windows 11 | Linux                         | macOS                                                   |
-| ---- | ----------------------------- | ---------- | ----------------------------- | ------------------------------------------------------- |
-| 5    | **Dual-role: tap vs. hold**   |            |                               |                                                         |
-| 5a   | mod-tap                       | ✗¹⁰        | ◑ keyd `overload()` [evdev]¹⁰ | ◑ Karabiner `to_if_alone` / `to_if_held_down` [IOKit]¹⁰ |
-| 5b   | layer-tap                     | ✗          | ◑ keyd [evdev]                | ◑ Karabiner-Elements³                                   |
-| 5c   | hold-tap flavor variants      | ✗          | ◑ keyd / xremap [evdev]       | ◑ Karabiner (partial)¹¹                                 |
-| 5d   | auto-shift                    | ✗          | ✗                             | ✗                                                       |
-| 6    | **Tap count**                 |            |                               |                                                         |
-| 6a   | tap dance                     | ✗          | ◑ keyd (limited)¹²            | ◑ Karabiner (limited)¹²                                 |
-| 6b   | tap dance eager               | ✗          | ✗¹²                           | ✗¹²                                                     |
-| 7    | **Tap-toggle** *(hybrid)*     | ✗          | ◑ keyd approximation          | ◑ Karabiner approximation                               |
-| 8    | **Simultaneous keys (combo)** | ✗¹³        | ◑ keyd [evdev]¹³              | ◑ Karabiner `simultaneous`¹³                            |
+| #    | Mechanism                     | Windows 11                                      | Linux                         | macOS                                                   |
+| ---- | ----------------------------- | ----------------------------------------------- | ----------------------------- | ------------------------------------------------------- |
+| 5    | **Dual-role: tap vs. hold**   |                                                 |                               |                                                         |
+| 5a   | mod-tap                       | ✗ natively; ◑ keyd [LLH not available on Win]¹⁰ | ◑ keyd `overload()` [evdev]¹⁰ | ◑ Karabiner `to_if_alone` / `to_if_held_down` [IOKit]¹⁰ |
+| 5b   | layer-tap                     | ✗                                               | ◑ keyd [evdev]                | ◑ Karabiner-Elements³                                   |
+| 5c   | hold-tap flavor variants      | ✗                                               | ◑ keyd / xremap [evdev]       | ◑ Karabiner (partial)¹¹                                 |
+| 5d   | Auto Shift                    | ✗                                               | ✗                             | ✗                                                       |
+| 6    | **Tap count**                 |                                                 |                               |                                                         |
+| 6a   | tap dance                     | ✗                                               | ◑ keyd (limited)¹²            | ◑ Karabiner (limited)¹²                                 |
+| 6b   | tap dance eager               | ✗                                               | ✗¹²                           | ✗¹²                                                     |
+| 7    | **Tap-toggle** *(hybrid)*     | ✗                                               | ◑ keyd approximation          | ◑ Karabiner approximation                               |
+| 8    | **Simultaneous keys (combo)** | ✗¹³                                             | ◑ keyd [evdev]¹³              | ◑ Karabiner `simultaneous`¹³                            |
 
 ------
 
@@ -164,9 +162,7 @@ Cross-platform tools (Kanata, AutoHotkey, Espanso...) are explicitly excluded fr
 
 **⁹ Leader key / sequences at OS level:** No OS provides a native leader key mechanism. keyd on Linux can approximate short sequences using its macro chaining, but it does not have a formal leader-key concept with arbitrary sequence depth. On Windows and macOS, a leader key is not achievable at the OS-native tool level without a cross-platform daemon (Kanata).
 
-**¹⁰ Mod-tap — interception depth matters:** keyd on Linux achieves mod-tap via its `overload(modifier, key)` syntax at the evdev level, meaning it works system-wide, in Wayland, at the virtual console, and is not subject to display-server bypass. Karabiner-Elements on macOS achieves tap-vs-hold via `to_if_alone` / `to_if_held_down` at the IOKit level with equivalent system-wide reach. On Windows, mod-tap is not achievable at the OS-native tool layer. MSKLC and KbdEdit produce static layout DLLs with no timing logic. SharpKeys/Scancode Map is 1:1 static remapping only. No OS-native Windows tool implements tap-vs-hold disambiguation.
-
-**Auto Shift at OS level:** No OS provides hold-duration-to-shift behaviour natively. All three OSes do include a related accessibility feature called Slow Keys (Windows and macOS: Accessibility settings; Linux: XKB `slowkeys` option), which uses the same underlying mechanism — measuring hold duration against a threshold — but for a different purpose: gating whether a keypress is accepted at all, rather than branching between two different outputs. Slow Keys and Auto Shift are mechanically cousins but functionally opposite in intent.
+**¹⁰ Mod-tap — interception depth matters:** keyd on Linux achieves mod-tap via its `overload(modifier, key)` syntax at the evdev level, meaning it works system-wide, in Wayland, at the virtual console, and is not subject to display-server bypass. Karabiner-Elements on macOS achieves tap-vs-hold via `to_if_alone` / `to_if_held_down` at the IOKit level with equivalent system-wide reach. On Windows, mod-tap is not achievable at the OS-native tool layer. MSKLC and KbdEdit produce static layout DLLs with no timing logic. SharpKeys/Scancode Map is 1:1 static remapping only. The only Windows OS-level tools available operate at LLHook level (see previous discussion), and keyd does not have a Windows version.
 
 **¹¹ Hold-tap flavour variants on macOS:** Karabiner-Elements supports `to_if_alone`, `to_if_held_down`, and `to_after_key_up` conditions, which correspond roughly to tap-preferred and hold-preferred disambiguation flavours. It does not expose the full range of QMK-style flavour options (permissive hold, retro tap, etc.), but covers the most common cases.
 
@@ -190,7 +186,7 @@ On Linux, tools like keyd and xremap operate at the evdev level, below the displ
 
 On macOS, Karabiner-Elements operates at the IOKit HID driver level, equivalent in depth to Linux evdev. It works system-wide in virtually all applications and is not subject to application-level bypass. This makes macOS second in capability, though Karabiner depends on a kernel or system extension that Apple can break at major OS version boundaries.
 
-On Windows, the native tool gap is largest. MSKLC and KbdEdit produce static layout DLLs with no timing logic; SharpKeys and the Scancode Map registry handle only 1:1 static remapping. Most advanced mechanisms therefore require a cross-platform daemon such as Kanata, which does run on Windows and covers much of the mechanism space, but it operates at LLHook level. As discussed in another article, LLHook does not intercept input directed at elevated processes, does not function at the login screen or UAC prompts, and is bypassed by applications using raw input APIs. This is a capability gap that Microsoft could close by implementing these mechanisms natively at the appropriate level of the input stack.
+On Windows, the native tool gap is largest. MSKLC and KbdEdit produce static layout DLLs with no timing logic; SharpKeys and the Scancode Map registry handle only 1:1 static remapping. Most advanced mechanisms therefore require a cross-platform daemon such as Kanata, which does run on Windows and covers much of the mechanism space, but it operates at LLHook level. As discussed in another article, LLHook does not intercept input directed at elevated processes, does not function at the login screen or UAC prompts, and is bypassed by applications using raw input APIs. This is a capability gap that Microsoft could close by implementing these mechanisms natively at the appropriate level of the input stack. 
 
 ## Input Methods in QMK, ZMK and Kanata
 
@@ -199,7 +195,7 @@ The tables compare which methods are available with different firmware or softwa
 ### Group 1 — Free-timed Mechanisms
 
 | #    | Mechanism                     | QMK syntax                | Via¹ | Vial¹ | Kanata syntax                                | ZMK syntax               |
-| ---- | ----------------------------- | ------------------------- | ---- | ----- | -------------------------------------------- | ------------------------ |
+| :--- | :---------------------------- | :------------------------ | :--- | :---- | :------------------------------------------- | :----------------------- |
 | 0    | Standard key                  | `KC_X`                    | ✓    | ✓     | key literal (`a`, `spc`)                     | `&kp X`                  |
 | 1    | **Held key → modified state** |                           |      |       |                                              |                          |
 | 1a   | modifier key                  | `KC_LSFT`, `KC_LCTL` …    | ✓    | ✓     | `lsft`, `lctl` …                             | `&kp LSFT`, `&kp LCTL` … |
@@ -207,43 +203,44 @@ The tables compare which methods are available with different firmware or softwa
 | 2    | **Toggle → persistent state** |                           |      |       |                                              |                          |
 | 2a   | layer toggle                  | `TG(n)`                   | ✓    | ✓     | `(layer-toggle name)`                        | `&tog n`                 |
 | 2b   | base layer switch             | `TO(n)`                   | ✓    | ✓     | `(layer-switch name)`                        | `&to n`                  |
-| 2c   | key toggle (lock key down)    | `QK_LOCK`                 | ✗    | ✗     | *(not supported)*                            | `&kt X`                  |
+| 2c   | key toggle (lock key down)    | `QK_LOCK`                 | –    | –     | *(not supported)*                            | `&kt X`                  |
 | 3    | **One-shot**                  |                           |      |       |                                              |                          |
 | 3a   | one-shot modifier             | `OSM(MOD_LSFT)`           | ✓    | ✓     | `(one-shot timeout lsft)`                    | `&sk LSFT`               |
 | 3b   | one-shot layer                | `OSL(n)`                  | ✓    | ✓     | `(one-shot timeout (layer-while-held name))` | `&sl n`                  |
 | 4    | **Sequential composition**    |                           |      |       |                                              |                          |
 | 4a   | dead key                      | OS/layout level²          | n/a  | n/a   | OS/layout level²                             | OS/layout level²         |
 | 4b   | compose key                   | OS/layout level²          | n/a  | n/a   | OS/layout level²                             | OS/layout level²         |
-| 4c   | leader / key sequence         | `LEADER` + callbacks in C | ✗    | ✗     | `defseq` + `(sequence-timeout ms)`           | `zmk-helpers` module³    |
+| 4c   | leader / key sequence         | `LEADER` + callbacks in C | –    | –     | `defseq` + `(sequence-timeout ms)`           | `zmk-helpers` module³    |
 
 ------
 
 ### Group 2 — Threshold-timed Mechanisms
 
 | #    | Mechanism                                           | QMK syntax                                                   | Via¹ | Vial¹ | Kanata syntax                                                | ZMK syntax                            |
-| ---- | --------------------------------------------------- | ------------------------------------------------------------ | ---- | ----- | ------------------------------------------------------------ | ------------------------------------- |
+| :--- | :-------------------------------------------------- | :----------------------------------------------------------- | :--- | :---- | :----------------------------------------------------------- | :------------------------------------ |
 | 5    | **Dual-role: tap vs. hold**                         |                                                              |      |       |                                                              |                                       |
 | 5a   | mod-tap                                             | `MT(MOD_X, KC_Y)` / `LSFT_T(KC_X)`                           | ✓    | ✓     | `(tap-hold t t key mod)`                                     | `&mt MOD KEY`                         |
 | 5b   | layer-tap                                           | `LT(n, KC_X)`                                                | ✓    | ✓     | `(tap-hold t t key (layer-while-held name))`                 | `&lt n KEY`                           |
-| 5c   | custom hold-tap                                     | `HOLD_ON_OTHER_KEY_PRESS`, `PERMISSIVE_HOLD`, `RETRO_TAP` (per-key or global) | ✗    | ✓⁴    | `tap-hold-press`, `tap-hold-release`, `tap-hold-release-timeout` | `&hold-tap` with `flavor` property⁵   |
-| 5d   | auto-shift                                          | `AUTO_SHIFT_ENABLE` in `rules.mk`                            | ✗    | ✓¹⁰   | *(not supported)*                                            | *(not supported)*                     |
+| 5c   | custom hold-tap                                     | `HOLD_ON_OTHER_KEY_PRESS`, `PERMISSIVE_HOLD`, `RETRO_TAP` (per-key or global) | –    | ✓⁴    | `tap-hold-press`, `tap-hold-release`, `tap-hold-release-timeout` | `&hold-tap` with `flavor` property⁵   |
+| 5d   | Auto Shift                                          |                                                              |      |       |                                                              |                                       |
 | 6    | **Tap count**                                       |                                                              |      |       |                                                              |                                       |
-| 6a   | tap dance                                           | `TD(n)` + `tap_dance_actions[]`                              | ✗    | ✓⁶    | `(tap-dance timeout (a1 a2 …))`                              | `zmk,behavior-tap-dance`⁷             |
-| 6b   | tap dance eager                                     | *(custom)*                                                   | ✗    | ✗     | `(tap-dance-eager timeout (a1 a2 …))`                        | *(not supported)*                     |
+| 6a   | tap dance                                           | `TD(n)` + `tap_dance_actions[]`                              | –    | ✓⁶    | `(tap-dance timeout (a1 a2 …))`                              | `zmk,behavior-tap-dance`⁷             |
+| 6b   | tap dance eager                                     | *(custom)*                                                   | –    | –     | `(tap-dance-eager timeout (a1 a2 …))`                        | *(not supported)*                     |
 | 7    | **Tap-toggle** *(hybrid: hold=free, tap=threshold)* | `TT(n)`                                                      | ✓    | ✓     | *(approximate via tap-dance + layer-while-held)*⁸            | *(approximate via tap-dance + &mo)*⁸  |
-| 8    | **Simultaneous keys (combo)**                       | `COMBO(name, output)`                                        | ✗    | ✓     | `(defchords group timeout (keys) action)`                    | `combos { … key-positions = <n n>; }` |
+| 8    | **Simultaneous keys (combo)**                       | `COMBO(name, output)`                                        | –    | ✓     | `(defchords group timeout (keys) action)`                    | `combos { … key-positions = <n n>; }` |
 
 ------
 
 ### Group 3 — Context-aware / Adaptive
 
-| #    | Mechanism                        | QMK syntax                       | Via¹ | Vial¹ | Kanata syntax              | ZMK syntax                 |
-| ---- | -------------------------------- | -------------------------------- | ---- | ----- | -------------------------- | -------------------------- |
-| 9    | **State-watching auto-behavior** |                                  |      |       |                            |                            |
-| 9a   | word-boundary capitalization     | `CAPS_WORD`                      | ✗    | ✓     | `(caps-word timeout)`      | `&caps_word`               |
-| 9b   | last-key repeat                  | `QK_REPEAT_KEY`                  | ✗    | ✓⁹    | `rpt`                      | `&key_repeat`              |
-| 9c   | in-firmware autocorrect          | `AUTOCORRECT_ENABLE` + data file | ✗    | ✗     | *(not supported)*          | *(not supported)*          |
-| 9d   | layer lock                       | `QK_LAYER_LOCK`                  | ✗    | ✓     | *(not supported natively)* | *(not supported natively)* |
+| #    | Mechanism                        | QMK syntax                                          | Via¹ | Vial¹ | Kanata syntax              | ZMK syntax                 |
+| :--- | :------------------------------- | :-------------------------------------------------- | :--- | :---- | :------------------------- | :------------------------- |
+| 9    | **State-watching auto-behavior** |                                                     |      |       |                            |                            |
+| 9a   | word-boundary capitalization     | `CAPS_WORD`                                         | –    | ✓     | `(caps-word timeout)`      | `&caps_word`               |
+| 9b   | last-key repeat                  | `QK_REPEAT_KEY`                                     | –    | ✓⁹    | `rpt`                      | `&key_repeat`              |
+| 9c   | hold-duration auto-shift         | `AUTO_SHIFT_ENABLE` in [rules.mk](http://rules.mk/) | –    | ✓¹⁰   | *(not supported)*          | *(not supported)*          |
+| 9d   | in-firmware autocorrect          | `AUTOCORRECT_ENABLE` + data file                    | –    | –     | *(not supported)*          | *(not supported)*          |
+| 9e   | layer lock                       | `QK_LAYER_LOCK`                                     | –    | ✓     | *(not supported natively)* | *(not supported natively)* |
 
 ------
 
@@ -251,7 +248,7 @@ The tables compare which methods are available with different firmware or softwa
 
 **¹ Via / Vial are QMK configuration tools, not separate firmware.** They allow runtime configuration without recompiling. Via is the base tool; Vial is an extended fork with additional feature support. Whether a Vial feature is available on a specific keyboard depends on it being compiled into that keyboard’s firmware — keyboard manufacturers must enable features at compile time. A ✓ means the feature can be configured in the tool when the firmware supports it; a – means it requires direct firmware compilation regardless.
 
-**² Dead keys and compose keys** are defined at the OS keyboard layout level (XKB on Linux, the layout .dll on Windows, or the system keyboard layout on macOS). Neither QMK, Kanata, nor ZMK implement dead key or compose key composition — all composition logic lives in the OS. The firmware can assign any physical key to send whatever keycode the OS expects as the compose trigger (e.g. `KC_RALT` if the OS is configured for `compose:ralt`), but there is no dedicated compose keycode in QMK or ZMK. The previously referenced `KC_COMPOSE` does not exist as a current documented QMK keycode.
+**² Dead keys and compose keys** are defined at the OS keyboard layout level (XKB on Linux, the layout .dll on Windows, or the system keyboard layout on macOS). Neither QMK, Kanata, nor ZMK implement dead key or compose key composition — they pass the relevant keycodes through to the OS, which resolves the composition. The keycode can be assigned to any physical key, but the composition logic lives entirely in the OS.
 
 **³ ZMK leader key** is not part of the core firmware. It is available via the `zmk-helpers` community module (`ZMK_LEADER_SEQUENCE`). This requires adding the module to your ZMK config — it is not available in the standard ZMK web configurator (ZMK Studio).
 
@@ -268,3 +265,4 @@ The tables compare which methods are available with different firmware or softwa
 **⁹ Alt-repeat key** (`QK_ALT_REPEAT_KEY`) is also supported in recent Vial versions — this is a context-aware variant of repeat that produces the “opposite” of the last key (e.g. after typing `(` it outputs `)`). ZMK does not have a native equivalent; QMK’s basic `QK_REPEAT_KEY` maps to both Kanata’s `rpt` and ZMK’s `&key_repeat`.
 
 **¹⁰ Vial auto-shift** exposes the Auto Shift feature as a runtime-togglable setting with configurable timeout, but only when the keyboard firmware has been compiled with `AUTO_SHIFT_ENABLE`. It cannot be enabled purely via Vial if the firmware does not include it.
+
