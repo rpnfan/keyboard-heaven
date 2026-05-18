@@ -14,6 +14,8 @@ enableGitInfo = true
 
 [params]
 
+  # Layout Optionen: "wide" oder "boxed"
+  layout = "wide"
 
   # Footer anzeigen, damit Social Icons dort sichtbar sind
   hideFooter = false

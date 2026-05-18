@@ -1,0 +1,877 @@
+<style>
+  /* ===== Widget styles (scoped under .ks-widget) ===== */
+  .ks-widget {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #333;
+    margin: 20px 0;
+  }
+  .ks-widget * { box-sizing: border-box; }
+
+  /* -- Setup -- */
+  .ks-instructions {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .ks-sample-passage {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    padding: 10px 14px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .ks-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    resize: vertical;
+    min-height: 120px;
+    transition: border-color 0.15s;
+  }
+  .ks-textarea:focus {
+    outline: none;
+    border-color: #4e79a7;
+    box-shadow: 0 0 0 3px rgba(78,121,167,0.15);
+  }
+  .ks-textarea.recording {
+    border-color: #e15759;
+    box-shadow: 0 0 0 3px rgba(225,87,89,0.15);
+  }
+  .ks-textarea:disabled {
+    background: #f8f8f8;
+    color: #666;
+  }
+
+  .ks-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .ks-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .ks-btn-primary { background: #4e79a7; color: #fff; }
+  .ks-btn-primary:hover { background: #3b6491; }
+  .ks-btn-primary:disabled { background: #bbb; cursor: not-allowed; }
+  .ks-btn-danger { background: #e15759; color: #fff; }
+  .ks-btn-danger:hover { background: #c9413f; }
+
+  .ks-recording-indicator {
+    color: #e15759;
+    font-size: 13px;
+    font-weight: 600;
+    animation: ks-pulse 1.2s infinite;
+  }
+  @keyframes ks-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .ks-status {
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+    min-height: 18px;
+  }
+
+  /* -- Results -- */
+  .ks-results { margin-top: 24px; }
+
+  .ks-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .ks-stat-card {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+  .ks-stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .ks-stat-label {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  .ks-section {
+    margin-bottom: 28px;
+  }
+  .ks-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: #333;
+  }
+  .ks-section-desc {
+    font-size: 13px;
+    color: #888;
+    margin: 0 0 14px 0;
+  }
+
+  /* -- Hold time chart (horizontal bars) -- */
+  .ks-hold-chart {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: #fafafa;
+    padding: 12px 16px;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .ks-hold-legend {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #666;
+  }
+  .ks-hold-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .ks-hold-legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
+
+  .ks-hold-row {
+    display: flex;
+    align-items: center;
+    height: 26px;
+    margin-bottom: 2px;
+  }
+  .ks-hold-key {
+    width: 70px;
+    flex-shrink: 0;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 10px;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ks-hold-bar-area {
+    flex: 1;
+    position: relative;
+    height: 18px;
+    background: #eee;
+    border-radius: 3px;
+  }
+  .ks-hold-range {
+    position: absolute;
+    top: 6px;
+    height: 6px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 3px;
+  }
+  .ks-hold-bar {
+    position: absolute;
+    top: 2px;
+    height: 14px;
+    border-radius: 3px;
+    opacity: 0.85;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .ks-hold-bar:hover { opacity: 1; }
+  .ks-hold-value {
+    width: 110px;
+    flex-shrink: 0;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    color: #888;
+    padding-left: 8px;
+    white-space: nowrap;
+  }
+
+  /* -- Gap distribution chart (vertical histogram) -- */
+  .ks-gap-wrap {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: #fafafa;
+    padding: 16px;
+  }
+  .ks-gap-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 1px;
+    height: 180px;
+    border-bottom: 1px solid #999;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .ks-gap-bar {
+    flex: 1;
+    min-width: 5px;
+    max-width: 16px;
+    border-radius: 2px 2px 0 0;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    position: relative;
+  }
+  .ks-gap-bar:hover { opacity: 0.7; }
+  .ks-gap-bar.overlap { background: #e15759; }
+  .ks-gap-bar.gap { background: #59a14f; }
+  .ks-gap-bar.zero { background: #edc948; }
+  .ks-gap-zero-line {
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    width: 2px;
+    background: #333;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .ks-gap-zero-label {
+    position: absolute;
+    top: -16px;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 700;
+    color: #333;
+  }
+  .ks-gap-x-axis {
+    position: relative;
+    height: 28px;
+  }
+  .ks-gap-x-label {
+    position: absolute;
+    font-size: 10px;
+    color: #999;
+    transform: translateX(-50%);
+    top: 4px;
+  }
+  .ks-gap-x-title {
+    text-align: center;
+    font-size: 11px;
+    color: #888;
+    margin-top: 16px;
+  }
+  .ks-gap-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #666;
+  }
+  .ks-gap-legend-item { display: flex; align-items: center; gap: 4px; }
+  .ks-gap-legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
+
+  /* -- Worst offenders table -- */
+  .ks-offenders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .ks-offenders-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+  }
+  .ks-offenders-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+  }
+  .ks-offenders-table tr:last-child td { border-bottom: none; }
+  .ks-offenders-table tr:hover td { background: #f8f9fa; }
+  .ks-offender-key {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .ks-offender-overlap {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: #e15759;
+    font-weight: 700;
+  }
+  .ks-offender-context {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    color: #666;
+  }
+  .ks-offender-context mark {
+    background: #fde68a;
+    color: #333;
+    border-radius: 2px;
+    padding: 0 2px;
+    font-weight: 600;
+  }
+  .ks-no-data {
+    color: #888;
+    font-style: italic;
+    padding: 16px;
+    text-align: center;
+  }
+
+  /* -- Tooltip -- */
+  .ks-tooltip {
+    position: fixed;
+    background: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'SF Mono', monospace;
+    pointer-events: none;
+    z-index: 1000;
+    white-space: nowrap;
+    display: none;
+  }
+</style>
+
+<div id="key-stats" class="ks-widget">
+  <div class="ks-setup">
+    <div class="ks-instructions">
+      Type freely in the text area below. All key events (including modifiers)
+      are recorded passively. Recording stops after 6s
+      of inactivity, when the area loses focus, or when you press Stop.
+      Here is an example passage you can type:
+    </div>
+    <div class="ks-sample-passage">The family vacation was going perfectly before the incident at the marina. Mark had simply wanted to rent a jetski to see how fast he could speed across the open water. However, the automated rental kiosk was failing to process his request. After he typed in the specified booking code, a red warning flag popped up on the screen regarding his payment status. A bizarre developer error message appeared at the bottom of the terminal reading, &ldquo;if false, then abort,&rdquo; leaving Mark confused and stranded on the dock while the rest of his family enjoyed the beach.</div>
+    <textarea class="ks-textarea" rows="6" placeholder="Click Start, then type here..." disabled></textarea>
+    <div class="ks-controls">
+      <button class="ks-btn ks-btn-primary ks-btn-start">Start Recording</button>
+      <button class="ks-btn ks-btn-danger ks-btn-stop" style="display:none">Stop Recording</button>
+      <button class="ks-btn ks-btn-primary ks-btn-reset" style="display:none">Start Over</button>
+      <span class="ks-recording-indicator" style="display:none">&#9679; Recording</span>
+    </div>
+    <div class="ks-status"></div>
+  </div>
+
+  <div class="ks-results" style="display:none">
+    <div class="ks-summary"></div>
+
+    <div class="ks-section">
+      <h3 class="ks-section-title">Hold Time by Key</h3>
+      <p class="ks-section-desc">Average key hold duration. Bar shows mean, faint band shows min&ndash;max range.</p>
+      <div class="ks-hold-chart"></div>
+    </div>
+
+    <div class="ks-section">
+      <h3 class="ks-section-title">Release&ndash;Press Gap Distribution</h3>
+      <p class="ks-section-desc">Time from releasing one key to pressing the next.
+        Negative = overlap (next key pressed before previous released).
+        Gaps over 300ms (pauses) are excluded.</p>
+      <div class="ks-gap-wrap"></div>
+    </div>
+
+    <div class="ks-section">
+      <h3 class="ks-section-title">Worst Offenders</h3>
+      <p class="ks-section-desc">Key pairs with the largest overlap &mdash; most likely to trigger accidental hold-tap modifiers.</p>
+      <div class="ks-offenders"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+class KeyStatsVisualizer {
+  constructor(container, options) {
+    var opts = options || {};
+    if (typeof container === 'string') {
+      this.container = document.getElementById(container);
+    } else {
+      this.container = container;
+    }
+    if (!this.container) throw new Error('KeyStatsVisualizer: container not found');
+
+    this.events = [];          
+    this.pendingKeys = {};     
+    this.recording = false;
+    this.idleTimer = null;
+    this.idleTimeout = opts.idleTimeout || 6000;
+    this.gapThreshold = opts.gapThreshold || 300;
+
+    this.colors = {
+      char:     '#4e79a7',
+      modifier: '#f28e2b',
+      special:  '#76b7b2'
+    };
+
+    this._keydownHandler = (e) => this._handleKeyDown(e);
+    this._keyupHandler   = (e) => this._handleKeyUp(e);
+    this._blurHandler    = ()  => this._onBlur();
+
+    this._buildUI();
+    this._bindEvents();
+  }
+
+  _buildUI() {
+    if (!document.querySelector('.ks-tooltip')) {
+      this.tooltip = document.createElement('div');
+      this.tooltip.className = 'ks-tooltip';
+      document.body.appendChild(this.tooltip);
+    } else {
+      this.tooltip = document.querySelector('.ks-tooltip');
+    }
+
+    var q = (s) => this.container.querySelector(s);
+    this.els = {
+      textarea:   q('.ks-textarea'),
+      startBtn:   q('.ks-btn-start'),
+      stopBtn:    q('.ks-btn-stop'),
+      indicator:  q('.ks-recording-indicator'),
+      status:     q('.ks-status'),
+      results:    q('.ks-results'),
+      summary:    q('.ks-summary'),
+      holdChart:  q('.ks-hold-chart'),
+      gapWrap:    q('.ks-gap-wrap'),
+      offenders:  q('.ks-offenders'),
+      resetBtn:   q('.ks-btn-reset')
+    };
+  }
+
+  _bindEvents() {
+    this.els.startBtn.addEventListener('click', () => this._startRecording());
+    this.els.stopBtn.addEventListener('click',  () => this._stopRecording());
+    this.els.resetBtn.addEventListener('click', () => this._reset());
+  }
+
+  _startRecording() {
+    this.events = [];
+    this.pendingKeys = {};
+    this.recording = true;
+
+    this.els.startBtn.style.display = 'none';
+    this.els.stopBtn.style.display = '';
+    this.els.resetBtn.style.display = 'none';
+    this.els.indicator.style.display = '';
+    this.els.results.style.display = 'none';
+    this.els.textarea.value = '';
+    this.els.textarea.disabled = false;
+    this.els.textarea.classList.add('recording');
+    this.els.status.textContent = 'Waiting for input\u2026';
+
+    this.els.textarea.addEventListener('keydown', this._keydownHandler);
+    this.els.textarea.addEventListener('keyup',   this._keyupHandler);
+    this.els.textarea.addEventListener('blur',    this._blurHandler);
+    this.els.textarea.focus();
+  }
+
+  _handleKeyDown(e) {
+    if (!this.recording) return;
+    if (e.repeat) return;
+
+    if (this.idleTimer) clearTimeout(this.idleTimer);
+    this.idleTimer = setTimeout(() => this._stopRecording(), this.idleTimeout);
+
+    var isModifier = ['Shift','Control','Alt','Meta'].includes(e.key);
+    var isSpecial  = ['Backspace','Delete','Enter','Tab','Escape',
+                        'ArrowUp','ArrowDown','ArrowLeft','ArrowRight',
+                        'Home','End','PageUp','PageDown',
+                        'CapsLock','Insert'].includes(e.key);
+
+    var evt = {
+      key:      e.key,
+      code:     e.code,
+      downTime: performance.now(),
+      upTime:   null,
+      isModifier: isModifier,
+      isSpecial: isSpecial
+    };
+    this.events.push(evt);
+
+    if (!this.pendingKeys[e.code]) this.pendingKeys[e.code] = [];
+    this.pendingKeys[e.code].push(evt);
+
+    var chars = this.events.filter(ev => !ev.isModifier && !ev.isSpecial).length;
+    this.els.status.textContent = this.events.length + ' key events (' + chars + ' characters)';
+  }
+
+  _handleKeyUp(e) {
+    var pending = this.pendingKeys[e.code];
+    if (pending && pending.length > 0) {
+      pending.shift().upTime = performance.now();
+    }
+  }
+
+  _onBlur() {
+    if (this.recording) {
+      setTimeout(() => { if (this.recording) this._stopRecording(); }, 200);
+    }
+  }
+
+  _stopRecording() {
+    if (!this.recording) return;
+    this.recording = false;
+
+    if (this.idleTimer) { clearTimeout(this.idleTimer); this.idleTimer = null; }
+
+    this.els.textarea.removeEventListener('keydown', this._keydownHandler);
+    this.els.textarea.removeEventListener('keyup',   this._keyupHandler);
+    this.els.textarea.removeEventListener('blur',    this._blurHandler);
+    this.els.textarea.classList.remove('recording');
+
+    this.els.stopBtn.style.display = 'none';
+    this.els.indicator.style.display = 'none';
+    this.els.resetBtn.style.display = '';
+    this.els.startBtn.style.display = 'none';
+    this.els.textarea.disabled = true;
+
+    var resolved = this.events.filter(ev => ev.upTime !== null);
+    var avgHold = resolved.length > 0
+      ? resolved.reduce((s, ev) => s + (ev.upTime - ev.downTime), 0) / resolved.length
+      : 80;
+    for (var i = 0; i < this.events.length; i++) {
+      if (this.events[i].upTime === null) this.events.push[i].upTime = this.events[i].downTime + avgHold;
+    }
+
+    if (this.events.length >= 4) {
+      this._renderResults();
+    } else {
+      this.els.status.textContent = 'Not enough data. Please type more and try again.';
+    }
+  }
+
+  _renderResults() {
+    this.els.results.style.display = '';
+    this.els.status.textContent = 'Recording complete. See results below.';
+    this._renderSummary();
+    this._renderHoldChart();
+    this._renderGapChart();
+    this._renderWorstOffenders();
+  }
+
+  _renderSummary() {
+    var all = this.events;
+    var chars = all.filter(e => !e.isModifier && !e.isSpecial);
+    var t0 = all[0].downTime;
+    var tEnd = all[all.length - 1].downTime;
+    var durationS = (tEnd - t0) / 1000;
+    var cpm = durationS > 0 ? Math.round(chars.length / durationS * 60) : 0;
+
+    var holds = all.map(e => e.upTime - e.downTime);
+    var avgHold = Math.round(holds.reduce((a, b) => a + b, 0) / holds.length);
+    var medHold = Math.round(this._median(holds));
+    var p90 = Math.round(this._percentile(holds, 90));
+    var p95 = Math.round(this._percentile(holds, 95));
+    var p99 = Math.round(this._percentile(holds, 99));
+
+    var sorted = [...all].sort((a, b) => a.downTime - b.downTime);
+    var overlapCount = 0;
+    for (var i = 0; i < sorted.length - 1; i++) {
+      if (sorted[i + 1].downTime - sorted[i].upTime < 0) overlapCount++;
+    }
+
+    this.els.summary.innerHTML = 
+      '<div class="ks-stat-card"><div class="ks-stat-value">' + all.length + '</div><div class="ks-stat-label">Total Keys</div></div>' +
+      '<div class="ks-stat-card"><div class="ks-stat-value">' + chars.length + '</div><div class="ks-stat-label">Characters</div></div>' +
+      '<div class="ks-stat-card"><div class="ks-stat-value">' + durationS.toFixed(1) + 's</div><div class="ks-stat-label">Duration</div></div>' +
+      '<div class="ks-stat-card"><div class="ks-stat-value">' + cpm + '</div><div class="ks-stat-label">Chars / Min</div></div>' +
+      '<div class="ks-stat-card"><div class="ks-stat-value">' + avgHold + 'ms</div><div class="ks-stat-label">Avg Hold</div></div>' +
+      '<div class="ks-stat-card"><div class="ks-stat-value">' + medHold + 'ms</div><div class="ks-stat-label">Median Hold</div></div>' +
+      '<div class="ks-stat-card"><div class="ks-stat-value">' + p90 + 'ms</div><div class="ks-stat-label">p90 Hold</div></div>' +
+      '<div class="ks-stat-card"><div class="ks-stat-value">' + p95 + 'ms</div><div class="ks-stat-label">p95 Hold</div></div>' +
+      '<div class="ks-stat-card"><div class="ks-stat-value">' + p99 + 'ms</div><div class="ks-stat-label">p99 Hold</div></div>' +
+      '<div class="ks-stat-card"><div class="ks-stat-value">' + overlapCount + '</div><div class="ks-stat-label">Overlaps</div></div>';
+  }
+
+  _renderHoldChart() {
+    var groups = {};
+    for (var i = 0; i < this.events.length; i++) {
+      var ev = this.events[i];
+      var k = ev.key;
+      if (!groups[k]) groups[k] = { key: k, holds: [], isModifier: ev.isModifier, isSpecial: ev.isSpecial };
+      groups[k].holds.push(ev.upTime - ev.downTime);
+    }
+
+    var stats = Object.values(groups).map(g => ({
+      key:    g.key,
+      count:  g.holds.length,
+      avg:    g.holds.reduce((a, b) => a + b, 0) / g.holds.length,
+      min:    Math.min(...g.holds),
+      max:    Math.max(...g.holds),
+      isModifier: g.isModifier,
+      isSpecial:  g.isSpecial
+    }));
+    stats.sort((a, b) => b.avg - a.avg);
+
+    var maxVal = Math.max(...stats.map(s => s.max), 1);
+
+    var html = '<div class="ks-hold-legend">' +
+      '<div class="ks-hold-legend-item"><div class="ks-hold-legend-swatch" style="background:' + this.colors.char + '"></div> Character</div>' +
+      '<div class="ks-hold-legend-item"><div class="ks-hold-legend-swatch" style="background:' + this.colors.modifier + '"></div> Modifier</div>' +
+      '<div class="ks-hold-legend-item"><div class="ks-hold-legend-swatch" style="background:' + this.colors.special + '"></div> Special</div>' +
+    '</div>';
+
+    stats.forEach((s) => {
+      var color = s.isModifier ? this.colors.modifier
+                : s.isSpecial  ? this.colors.special
+                : this.colors.char;
+      var avgPct   = (s.avg / maxVal) * 100;
+      var minPct   = (s.min / maxVal) * 100;
+      var rangePct = ((s.max - s.min) / maxVal) * 100;
+      var label = this._labelKey(s.key);
+
+      html += '<div class="ks-hold-row">' +
+          '<div class="ks-hold-key" title="' + this._esc(s.key) + '">' + this._esc(label) + '</div>' +
+          '<div class="ks-hold-bar-area">' +
+            '<div class="ks-hold-range" style="left:' + minPct + '%;width:' + rangePct + '%"></div>' +
+            '<div class="ks-hold-bar" style="width:' + avgPct + '%;background:' + color + '" ' +
+                 'data-tip="' + this._esc(label) + ': avg ' + Math.round(s.avg) + 'ms, min ' + Math.round(s.min) + 'ms, max ' + Math.round(s.max) + 'ms (n=' + s.count + ')"></div>' +
+          '</div>' +
+          '<div class="ks-hold-value">' + Math.round(s.avg) + 'ms (n=' + s.count + ')</div>' +
+        '</div>';
+    });
+
+    this.els.holdChart.innerHTML = html;
+    this._attachBarTooltips(this.els.holdChart);
+  }
+
+  _renderGapChart() {
+    var sorted = [...this.events].sort((a, b) => a.downTime - b.downTime);
+
+    var gaps = [];
+    for (var i = 0; i < sorted.length - 1; i++) {
+      var gap = sorted[i + 1].downTime - sorted[i].upTime;
+      if (gap >= -this.gapThreshold && gap <= this.gapThreshold) {
+        gaps.push(gap);
+      }
+    }
+
+    if (gaps.length < 2) {
+      this.els.gapWrap.innerHTML = '<div class="ks-no-data">Not enough data for gap analysis.</div>';
+      return;
+    }
+
+    var binSize = 10;
+    var minGap = Math.min(...gaps);
+    var maxGap = Math.max(...gaps);
+    var minBin = Math.floor(minGap / binSize) * binSize;
+    var maxBin = Math.floor(maxGap / binSize) * binSize;
+
+    var bins = [];
+    for (var b = minBin; b <= maxBin; b += binSize) {
+      var count = gaps.filter(g => g >= b && g < b + binSize).length;
+      bins.push({ start: b, count: count });
+    }
+
+    var maxCount = Math.max(...bins.map(b => b.count), 1);
+    var chartHeight = 180;
+
+    var barsHtml = '';
+    bins.forEach((bin) => {
+      var h = (bin.count / maxCount) * chartHeight;
+      var cls = bin.start < 0 ? 'overlap'
+                : bin.start === 0 ? 'zero'
+                : 'gap';
+      var tip = bin.start + 'ms to ' + (bin.start + binSize) + 'ms: ' + bin.count + ' pair' + (bin.count !== 1 ? 's' : '');
+      barsHtml += '<div class="ks-gap-bar ' + cls + '" style="height:' + h + 'px" data-tip="' + this._esc(tip) + '"></div>';
+    });
+
+    var zeroHtml = '';
+    if (minBin < 0 && maxBin >= 0) {
+      var zeroIdx = (0 - minBin) / binSize;
+      var numBins = bins.length;
+      var pct = (zeroIdx / numBins) * 100;
+      zeroHtml = '<div class="ks-gap-zero-line" style="left:' + pct + '%"><span class="ks-gap-zero-label">0</span></div>';
+    }
+
+    var numBins = bins.length;
+    var labelsHtml = '';
+    var labelInterval = 50;
+    var startTick = Math.ceil(minBin / labelInterval) * labelInterval;
+    for (var v = startTick; v <= maxBin; v += labelInterval) {
+      if (v === 0 && minBin < 0 && maxBin >= 0) continue; 
+      var idx = (v - minBin) / binSize;
+      var pct = (idx / numBins) * 100;
+      labelsHtml += '<span class="ks-gap-x-label" style="left:' + pct + '%">' + v + 'ms</span>';
+    }
+
+    this.els.gapWrap.innerHTML = 
+      '<div class="ks-gap-chart" style="height:' + chartHeight + 'px">' +
+        barsHtml +
+        zeroHtml +
+      '</div>' +
+      '<div class="ks-gap-x-axis">' + labelsHtml + '</div>' +
+      '<div class="ks-gap-x-title">Gap (ms) &mdash; negative = overlap, positive = gap</div>' +
+      '<div class="ks-gap-legend">' +
+        '<div class="ks-gap-legend-item"><div class="ks-gap-legend-swatch" style="background:#e15759"></div> Overlap</div>' +
+        '<div class="ks-gap-legend-item"><div class="ks-gap-legend-swatch" style="background:#59a14f"></div> Gap</div>' +
+      '</div>';
+
+    this._attachBarTooltips(this.els.gapWrap);
+  }
+
+  _renderWorstOffenders() {
+    var sorted = [...this.events].sort((a, b) => a.downTime - b.downTime);
+
+    var overlaps = [];
+    for (var i = 0; i < sorted.length - 1; i++) {
+      var overlap = sorted[i].upTime - sorted[i + 1].downTime;
+      if (overlap > 0) {
+        overlaps.push({ first: sorted[i], second: sorted[i + 1], overlap: overlap, index: i });
+      }
+    }
+
+    if (overlaps.length === 0) {
+      this.els.offenders.innerHTML = '<div class="ks-no-data">No overlapping key pairs found. Clean typing!</div>';
+      return;
+    }
+
+    overlaps.sort((a, b) => b.overlap - a.overlap);
+    var top = overlaps.slice(0, 15);
+
+    var html = '<table class="ks-offenders-table">' +
+      '<thead><tr>' +
+        '<th>#</th>' +
+        '<th>Key 1 (held)</th>' +
+        '<th>Key 2 (pressed)</th>' +
+        '<th>Overlap</th>' +
+        '<th>Context</th>' +
+      '</tr></thead><tbody>';
+
+    top.forEach((o, rank) => {
+      var k1 = this._labelKey(o.first.key);
+      var k2 = this._labelKey(o.second.key);
+      var ctx = this._buildContext(sorted, o.index, 5);
+      html += '<tr>' +
+        '<td>' + (rank + 1) + '</td>' +
+        '<td class="ks-offender-key">' + this._esc(k1) + '</td>' +
+        '<td class="ks-offender-key">' + this._esc(k2) + '</td>' +
+        '<td class="ks-offender-overlap">' + Math.round(o.overlap) + 'ms</td>' +
+        '<td class="ks-offender-context">' + ctx + '</td>' +
+      '</tr>';
+    });
+
+    html += '</tbody></table>';
+    this.els.offenders.innerHTML = html;
+  }
+
+  _buildContext(sorted, index, windowSize) {
+    var start = Math.max(0, index - windowSize);
+    var end   = Math.min(sorted.length, index + 2 + windowSize);
+
+    var ctx = (start > 0) ? '\u2026' : '';
+    for (var i = start; i < end; i++) {
+      var dk = this._esc(this._displayKey(sorted[i].key));
+      if (i === index || i === index + 1) {
+        ctx += '<mark>' + dk + '</mark>';
+      } else {
+        ctx += dk;
+      }
+    }
+    if (end < sorted.length) ctx += '\u2026';
+    return ctx;
+  }
+
+  _reset() {
+    this.events = [];
+    this.pendingKeys = {};
+    this.els.results.style.display = 'none';
+    this.els.resetBtn.style.display = 'none';
+    this.els.startBtn.style.display = '';
+    this.els.startBtn.disabled = false;
+    this.els.textarea.value = '';
+    this.els.status.textContent = '';
+  }
+
+  _attachBarTooltips(container) {
+    container.querySelectorAll('[data-tip]').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        this.tooltip.textContent = el.dataset.tip;
+        this.tooltip.style.display = 'block';
+      });
+      el.addEventListener('mousemove', (e) => {
+        this.tooltip.style.left = (e.clientX + 14) + 'px';
+        this.tooltip.style.top  = (e.clientY - 32) + 'px';
+      });
+      el.addEventListener('mouseleave', () => {
+        this.tooltip.style.display = 'none';
+      });
+    });
+  }
+
+  _displayKey(key) {
+    var map = {
+      ' ': '\u2423', Shift: '\u21E7', Control: '\u2303', Alt: '\u2325', Meta: '\u2318',
+      Backspace: '\u232B', Delete: '\u2326', Enter: '\u21B5', Tab: '\u21E5',
+      Escape: '\u238B', CapsLock: '\u21EA',
+      ArrowUp: '\u2191', ArrowDown: '\u2193', ArrowLeft: '\u2190', ArrowRight: '\u2192'
+    };
+    return map[key] || key;
+  }
+
+  _labelKey(key) {
+    var map = {
+      ' ': 'Space', Shift: 'Shift', Control: 'Ctrl', Alt: 'Alt', Meta: 'Cmd',
+      Backspace: 'Bksp', Delete: 'Del', Enter: 'Enter', Tab: 'Tab',
+      Escape: 'Esc', CapsLock: 'Caps',
+      ArrowUp: 'Up', ArrowDown: 'Down', ArrowLeft: 'Left', ArrowRight: 'Right'
+    };
+    return map[key] || key;
+  }
+
+  _median(arr) {
+    var s = [...arr].sort((a, b) => a - b);
+    var m = Math.floor(s.length / 2);
+    return s.length % 2 !== 0 ? s[m] : (s[m - 1] + s[m]) / 2;
+  }
+
+  _percentile(arr, p) {
+    var s = [...arr].sort((a, b) => a - b);
+    var i = (p / 100) * (s.length - 1);
+    var lo = Math.floor(i);
+    var hi = Math.ceil(i);
+    if (lo === hi) return s[lo];
+    return s[lo] + (s[hi] - s[lo]) * (i - lo);
+  }
+
+  _esc(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  new KeyStatsVisualizer('key-stats');
+});
+</script>

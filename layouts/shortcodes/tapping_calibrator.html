@@ -1,0 +1,327 @@
+<style>
+    /* Scoped CSS for Hugo Compatibility */
+    #tc-app {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #f8fafc;
+        border-radius: 16px;
+        padding: 32px;
+        max-width: 800px;
+        margin: 2rem auto;
+        color: #1e293b;
+        box-sizing: border-box;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        outline: none;
+    }
+    #tc-app * { box-sizing: border-box; }
+    
+    /* Top Bar & Stats */
+    .tc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+    .tc-title-group h2 { margin: 0; font-size: 1.5rem; font-weight: 500; color: #0f172a; }
+    .tc-title-group p { margin: 4px 0 0 0; font-size: 0.875rem; color: #64748b; }
+    .tc-stats { display: flex; gap: 24px; text-align: left; }
+    .tc-stat-col { display: flex; flex-direction: column; }
+    .tc-stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 4px; font-weight: 600;}
+    .tc-stat-val { font-size: 1.125rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+    /* Center Stage */
+    .tc-center-stage {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        margin-bottom: 32px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: border 0.2s;
+        border: 2px solid transparent;
+    }
+    #tc-app:focus .tc-center-stage { border-color: #cbd5e1; }
+    
+    .tc-circle {
+        width: 180px;
+        height: 180px;
+        border: 4px solid #94a3b8;
+        border-radius: 50%;
+        margin: 0 auto 24px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+    }
+    .tc-circle.active { border-color: #3b82f6; background: #eff6ff; transform: scale(0.98); }
+    
+    .tc-time-disp { font-size: 2.5rem; font-weight: 700; line-height: 1; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+    .tc-badge {
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: 1px solid #cbd5e1;
+    }
+    .tc-badge.tap { background: #eff6ff; color: #2563eb; border-color: #bfdbfe; }
+    .tc-badge.hold { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
+    .tc-instruction { font-size: 1.125rem; color: #64748b; margin: 0; }
+
+    /* Chart Area */
+    .tc-chart-section { background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    .tc-chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .tc-legend { display: flex; gap: 16px; font-size: 0.75rem; color: #475569; }
+    .tc-legend-item { display: flex; align-items: center; gap: 6px; }
+    .tc-box { width: 16px; height: 16px; border-radius: 3px; }
+    .tc-box-blue { background: #2563eb; }
+    .tc-box-red { background: #dc2626; }
+    .tc-total-count { font-size: 0.875rem; font-weight: 600; color: #64748b; }
+    .tc-total-count span { color: #0f172a; font-size: 1.125rem; font-weight: 700; margin-left: 4px; font-variant-numeric: tabular-nums;}
+    
+    .tc-chart-wrapper {
+        height: 160px;
+        position: relative;
+        border-bottom: 1px solid #cbd5e1;
+        border-left: 1px solid #cbd5e1;
+        margin-bottom: 32px;
+        display: flex;
+        align-items: flex-end;
+        padding-left: 10px;
+        gap: 12px;
+    }
+    /* Y-Axis Labels */
+    .tc-y-axis { position: absolute; left: -30px; top: 0; height: 100%; display: flex; flex-direction: column; justify-content: space-between; font-size: 0.75rem; color: #64748b; }
+    
+    /* The Threshold Line */
+    .tc-t-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        border-bottom: 2px solid #0f172a;
+        z-index: 5;
+        transition: bottom 0.2s ease;
+    }
+    .tc-t-label { position: absolute; left: 10px; top: -20px; font-size: 0.75rem; font-weight: 600; color: #0f172a; }
+
+    /* Bars */
+    .tc-bar-container { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; width: 40px; height: 100%; z-index: 10; }
+    .tc-bar { width: 100%; border-radius: 4px 4px 0 0; transition: height 0.3s ease, background 0.3s; min-height: 4px; }
+    .tc-bar-label { font-size: 0.75rem; color: #475569; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+    
+    /* Controls */
+    .tc-controls { display: flex; align-items: center; gap: 24px; }
+    .tc-slider-group { flex-grow: 1; display: flex; align-items: center; gap: 16px; }
+    .tc-slider-label { font-size: 0.875rem; font-weight: 500; color: #334155; }
+    .tc-slider { flex-grow: 1; cursor: pointer; }
+    .tc-btn-clear {
+        background: #e2e8f0; border: none; padding: 10px 24px; border-radius: 999px;
+        font-size: 0.875rem; font-weight: 600; color: #475569; cursor: pointer; transition: all 0.2s;
+    }
+    .tc-btn-clear:hover { background: #cbd5e1; color: #0f172a; }
+</style>
+
+<div id="tc-app" tabindex="0">
+    <div class="tc-header">
+        <div class="tc-title-group">
+            <h2>Tapping Term Calibrator</h2>
+            <p id="tc-status-msg">Click here to activate. History cleared.</p>
+        </div>
+        <div class="tc-stats">
+            <div class="tc-stat-col">
+                <span class="tc-stat-label">Median (50%)</span>
+                <span class="tc-stat-val" id="st-med">--</span>
+            </div>
+            <div class="tc-stat-col">
+                <span class="tc-stat-label">95th Pct</span>
+                <span class="tc-stat-val" id="st-95">--</span>
+            </div>
+            <div class="tc-stat-col">
+                <span class="tc-stat-label">Max Outlier</span>
+                <span class="tc-stat-val" id="st-max">--</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tc-center-stage">
+        <div class="tc-circle" id="tc-circle">
+            <div class="tc-time-disp" id="tc-main-time">--</div>
+            <div class="tc-badge" id="tc-main-badge">AWAITING</div>
+        </div>
+        <p class="tc-instruction" id="tc-instruct">Press and Release any letter key to test</p>
+    </div>
+
+    <div class="tc-chart-section">
+        <div class="tc-chart-header">
+            <div class="tc-legend">
+                <div class="tc-legend-item"><div class="tc-box tc-box-blue"></div> TAP</div>
+                <div class="tc-legend-item"><div class="tc-box tc-box-red"></div> HOLD</div>
+            </div>
+            <div class="tc-total-count">Total Keystrokes: <span id="tc-count-display">0</span></div>
+        </div>
+        
+        <div class="tc-chart-wrapper" id="tc-chart">
+            <div class="tc-y-axis"><span>400</span><span>200</span><span>0</span></div>
+            <div class="tc-t-line" id="tc-t-line"><div class="tc-t-label" id="tc-t-label">Threshold: 200ms</div></div>
+            </div>
+
+        <div class="tc-controls">
+            <div class="tc-slider-group">
+                <label class="tc-slider-label">Threshold (ms)</label>
+                <input type="range" class="tc-slider" id="tc-slider" min="100" max="400" step="5" value="200">
+                <span class="tc-stat-val" id="tc-slider-val">200</span>
+            </div>
+            <button class="tc-btn-clear" id="tc-btn-clear">Clear History</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const app = document.getElementById('tc-app');
+    const slider = document.getElementById('tc-slider');
+    const sliderVal = document.getElementById('tc-slider-val');
+    const tLine = document.getElementById('tc-t-line');
+    const tLabel = document.getElementById('tc-t-label');
+    const chart = document.getElementById('tc-chart');
+    
+    const circle = document.getElementById('tc-circle');
+    const mainTime = document.getElementById('tc-main-time');
+    const mainBadge = document.getElementById('tc-main-badge');
+    const instruct = document.getElementById('tc-instruct');
+    const statusMsg = document.getElementById('tc-status-msg');
+    
+    const stMed = document.getElementById('st-med');
+    const st95 = document.getElementById('st-95');
+    const stMax = document.getElementById('st-max');
+    const countDisplay = document.getElementById('tc-count-display');
+    const btnClear = document.getElementById('tc-btn-clear');
+
+    let threshold = 200;
+    const CHART_MAX_MS = 400; // Y-axis ceiling
+    const MAX_BARS = 10;
+    
+    let isKeyDown = false;
+    let startTime = 0;
+    let history = []; // Array of objects { duration, id }
+    let barIdSeq = 0;
+
+    // -- Utilities --
+    function getPercentile(arr, p) {
+        if (arr.length === 0) return "--";
+        const sorted = [...arr].sort((a, b) => a - b);
+        const index = Math.ceil(sorted.length * p) - 1;
+        return sorted[Math.max(0, index)] + "ms";
+    }
+
+    // -- Update UI --
+    function updateThreshold() {
+        threshold = parseInt(slider.value);
+        sliderVal.textContent = threshold;
+        tLabel.textContent = `Threshold: ${threshold}ms`;
+        
+        // Position line on Y axis (capped at chart top)
+        const percentHeight = Math.min((threshold / CHART_MAX_MS) * 100, 100);
+        tLine.style.bottom = percentHeight + '%';
+        
+        // Re-evaluate existing bars
+        const bars = chart.querySelectorAll('.tc-bar');
+        bars.forEach(bar => {
+            const val = parseInt(bar.dataset.val);
+            bar.className = 'tc-bar ' + (val < threshold ? 'tc-box-blue' : 'tc-box-red');
+        });
+        
+        if (history.length > 0) updateMainBadge(history[history.length - 1].duration);
+    }
+
+    function updateStats() {
+        countDisplay.textContent = history.length;
+        
+        if (history.length === 0) {
+            stMed.textContent = "--"; st95.textContent = "--"; stMax.textContent = "--"; return;
+        }
+        const values = history.map(h => h.duration);
+        stMed.textContent = getPercentile(values, 0.50);
+        st95.textContent = getPercentile(values, 0.95);
+        stMax.textContent = Math.max(...values) + "ms";
+    }
+
+    function updateMainBadge(duration) {
+        mainTime.textContent = duration + "ms";
+        const isTap = duration < threshold;
+        mainBadge.textContent = isTap ? "RESULT: TAP" : "RESULT: HOLD";
+        mainBadge.className = 'tc-badge ' + (isTap ? 'tap' : 'hold');
+    }
+
+    function addChartBar(duration) {
+        barIdSeq++;
+        
+        // Capped visually to not overflow chart box
+        const visualHeight = Math.min((duration / CHART_MAX_MS) * 100, 100);
+        const isTap = duration < threshold;
+        
+        const container = document.createElement('div');
+        container.className = 'tc-bar-container';
+        container.dataset.id = barIdSeq;
+        
+        // SAFE HTML FOR HUGO: No style tags in the literal
+        container.innerHTML = `
+            <div class="tc-bar-label">${duration}</div>
+            <div class="tc-bar ${isTap ? 'tc-box-blue' : 'tc-box-red'}" data-val="${duration}"></div>
+        `;
+        
+        // Apply styling via pure DOM manipulation
+        container.lastElementChild.style.height = visualHeight + '%';
+        
+        chart.appendChild(container);
+        
+        // Remove oldest if exceeding MAX_BARS
+        const currentBars = chart.querySelectorAll('.tc-bar-container');
+        if (currentBars.length > MAX_BARS) {
+            chart.removeChild(currentBars[0]);
+        }
+    }
+
+    // -- Event Listeners --
+    slider.addEventListener('input', updateThreshold);
+
+    app.addEventListener('focus', () => { statusMsg.textContent = "Active. Ready to log keystrokes."; });
+    app.addEventListener('blur', () => { statusMsg.textContent = "Click inside the widget to activate."; isKeyDown = false; circle.classList.remove('active');});
+
+    app.addEventListener('keydown', (e) => {
+        if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) e.preventDefault();
+        if (e.repeat) return;
+
+        isKeyDown = true;
+        startTime = performance.now();
+        circle.classList.add('active');
+        instruct.textContent = "Timing [ " + (e.key === " " ? "Space" : e.key) + " ]...";
+    });
+
+    app.addEventListener('keyup', (e) => {
+        if (!isKeyDown) return;
+        const duration = Math.round(performance.now() - startTime);
+        isKeyDown = false;
+        circle.classList.remove('active');
+        instruct.textContent = "Press and Release any letter key to test";
+
+        history.push({ duration: duration, id: barIdSeq + 1 });
+        
+        updateMainBadge(duration);
+        addChartBar(duration);
+        updateStats();
+    });
+
+    btnClear.addEventListener('click', () => {
+        history = [];
+        const bars = chart.querySelectorAll('.tc-bar-container');
+        bars.forEach(b => b.remove());
+        mainTime.textContent = "--";
+        mainBadge.textContent = "AWAITING";
+        mainBadge.className = "tc-badge";
+        updateStats();
+        statusMsg.textContent = "History cleared.";
+        app.focus();
+    });
+
+    // Init
+    updateThreshold();
+})();
+</script>

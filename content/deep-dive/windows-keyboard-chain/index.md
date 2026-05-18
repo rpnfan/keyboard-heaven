@@ -381,3 +381,5 @@ layers, dead keys, IME and the different options for keyboard remapping.
 [4] [Stack Overflow: Detect if Right Alt generates Ctrl+Alt (AltGr) in current layout](https://stackoverflow.com/questions/58633725/windows-detect-if-right-alt-generates-ctrlalt-altgr-in-current-layout)
 
 [5] `kbdfrna.dll` is the newer NF-standardized layout introduced in Windows 11, which coexists with `kbdfr.dll` rather than replacing it — many French users still use the legacy layout.
+
+[6]  [USB HID key press](https://www.kenkoonwong.com/blog/usb-hid-key-press-report/)
