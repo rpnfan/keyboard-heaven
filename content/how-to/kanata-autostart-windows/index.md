@@ -8,7 +8,7 @@ cover:
   caption: ""
   relative: true
 
-weight: 2
+weight: 3
 ---
 
 
@@ -36,7 +36,7 @@ To start Kanata automatically with Windows, the Autostart folder is the obvious 
            caption="" >}}
 
 5. Under **Triggers**, create a new trigger:
-{{< figure src="ts2.png"
+   {{< figure src="ts2.png"
            alt="Triggers tab"
            class=""
            caption="" >}}
@@ -51,7 +51,7 @@ and fill in the following details:
 A delay ensures Kanata does not launch before all required Windows components have loaded. Starting too early can cause Kanata to malfunction — for example, some key remaps may not respond, or the taskbar icon may not appear. Both issues are resolved with a sufficient delay. Experiment with different values to find what works for your system. On my ARM64 laptop a 15-second delay is enough, while my x86 machine needs 45 seconds to be on the safe side. Windows appears to reach a ready state faster on ARM64.
 
 6. Under **Actions**, create a new action:
-{{< figure src="ts3.png"
+   {{< figure src="ts3.png"
            alt="New action"
            class=""
            caption="" >}}

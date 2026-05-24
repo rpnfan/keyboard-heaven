@@ -1,5 +1,5 @@
 ---
-title: "The tap-timeout calibrator — Test which time is optimal for your tap-held keys"
+title: "The tap-timeout calibrator — Test which time is optimal for your tap-hold keys"
 date: 2026-05-17
 draft: false
 cover:
@@ -23,7 +23,7 @@ Test both actions separately. First, simulate normal tap input by pressing keys 
 >
 > You must do this test with a "dumb" keyboard which does not already implement tap-hold mechanisms, because these will not be picked up with this tool. If you have keys which use tap-hold mechanisms you will see unrealistic low tap-times of just a few milliseconds. Expect typical tap-times for normal typing between 50 ms and 100 ms.
 >
-> The restriction that you must use a keyboard outputting plain key keys, applies to any form of implementation, be it with QMK, Kanata or another remapping option. In case you use a programmable keyboard you can still do the test, but the keys need to register as plain keys. Disable all tap-hold behaviors for the test. In case you normally use Kanata, just type without running the software. The *Home-Row-Mods Keyboard Statistics* tool introduced below also expects plain keyboard input btw.
+> The restriction that you must use a keyboard outputting plain keys, applies to any form of implementation, be it with QMK, Kanata or another remapping option. In case you use a programmable keyboard you can still do the test, but the keys need to register as plain keys. Disable all tap-hold behaviors for the test. In case you normally use Kanata, just type without running the software. The *Home-Row-Mods Keyboard Statistics* tool introduced below also expects plain keyboard input btw.
 
 ## Statistics to help you find the right tap-timeout
 
